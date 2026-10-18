@@ -23,7 +23,7 @@ const isSanityConfigured = SANITY_PROJECT_ID !== 'placeholder';
 // Mirrors src/data in the Myportfolio repo and the in-app content.
 // ============================================
 const SITE = {
-    origin: 'https://codewithmoju.netlify.app',
+    origin: 'https://muhammadmoaiz.netlify.app',
     personId: 'Muhammad Moaiz',
     alternateName: ['Moaiz', 'codewithmoju'],
     jobTitle: 'Full-Stack Mobile Developer',
@@ -32,17 +32,22 @@ const SITE = {
     aboutMe: 'Muhammad Moaiz shipped his first freelance React Native app at 16 and has been building ever since. He co-founded NAMS Studio in Lahore, Pakistan, and studies Computer Software Engineering (BSSE) at Minhaj University Lahore. He is a product-minded developer focused on mobile apps, SaaS tools, AI products, and automation systems that solve real problems.',
     knowsAbout: ['React Native', 'React', 'Next.js', 'TypeScript', 'JavaScript', 'Firebase', 'Supabase', 'PostgreSQL', 'Fastify', 'REST APIs', 'Expo', 'Tailwind CSS', 'Redux'],
     sameAs: [
-        'https://github.com/MuhammadMoaiz001',
-        'https://twitter.com/M_Moaiz001',
+        'https://muhammadmoaiz.netlify.app/',
+        'https://kippoo.netlify.app/muhammadmoaiz',
+        'https://github.com/codewithmoju',
         'https://www.linkedin.com/in/muhammadmoaiz',
-        'https://codewithmoju.netlify.app/',
+        'https://instagram.com/codewithmoju',
+        'https://facebook.com/profile.php?id=61575568985059',
+        'https://tiktok.com/@codewithmoju',
+        'https://twitter.com/M_Moaiz001',
+        'https://wa.me/923019684007',
     ],
 };
 
 const LOCAL_PROJECTS = [
-    { title: 'RouteRadiant', description: 'Private AI learning SaaS built around one clear mission: make structured, personalized education easier to access. Public-safe case study — learner value and outcome are shown, the internal system stays protected.', url: SITE.origin },
+    { title: 'RouteRadiant', description: 'Private AI learning SaaS built around one clear mission: make structured, personalized education easier to access. Public-safe case study — learner value and outcome are shown, the internal system stays protected.', url: 'https://www.routeradiant.com/' },
     { title: 'NAMS Flow', description: 'Private customer communication SaaS for organized multi-channel business workflows. The public story covers operator value and experience; integrations, billing and internal automation stay private.', url: SITE.origin },
-    { title: 'Kippo', description: 'Private social media management SaaS for teams and agencies — content planning, scheduling, analytics and multi-account workflows in one calmer workspace.', url: SITE.origin },
+    { title: 'Kippo', description: 'Private social media management SaaS for teams and agencies — content planning, scheduling, analytics and multi-account workflows in one calmer workspace.', url: 'https://kippoo.netlify.app/' },
     { title: 'StockSuite', description: 'Private retail POS SaaS for inventory, sales and store operations. Built for real retail counters where speed and clarity matter, with the internal system kept non-public.', url: SITE.origin },
     { title: 'NAMS Studio', description: 'Official NAMS Studio agency website — app development, web development, UI/UX and SEO services, presented with motion-driven brand storytelling and selected works.', url: 'https://www.namsstudio.com' },
     { title: 'BudgetO', description: 'Premium personal finance tracking app for expenses, income, categories, currencies and insights — a complete React Native fintech build with Firebase auth, storage and biometric quick login.', url: 'https://github.com/codewithmoju/Finance-tracking-app' },
@@ -100,7 +105,7 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
     // --- 1. Person: Central node of the Knowledge Graph ---
     const person = {
         '@type': 'Person',
-        '@id': 'https://codewithmoju.netlify.app/#person',
+        '@id': 'https://muhammadmoaiz.netlify.app/#person',
         name: SITE.personId,
         alternateName: SITE.alternateName,
         url: SITE.origin,
@@ -123,21 +128,21 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
     // --- 2. WebSite ---
     const website = {
         '@type': 'WebSite',
-        '@id': 'https://codewithmoju.netlify.app/#website',
+        '@id': 'https://muhammadmoaiz.netlify.app/#website',
         url: SITE.origin,
         name: globalInfo?.siteTitle || SITE.title,
         description: globalInfo?.siteDescription || SITE.description,
-        publisher: { '@id': 'https://codewithmoju.netlify.app/#person' }
+        publisher: { '@id': 'https://muhammadmoaiz.netlify.app/#person' }
     };
     graph.push(website);
 
     // --- 3. ProfilePage ---
     const profilePage = {
         '@type': 'ProfilePage',
-        '@id': 'https://codewithmoju.netlify.app/#profilepage',
+        '@id': 'https://muhammadmoaiz.netlify.app/#profilepage',
         url: SITE.origin,
-        mainEntity: { '@id': 'https://codewithmoju.netlify.app/#person' },
-        about: { '@id': 'https://codewithmoju.netlify.app/#person' }
+        mainEntity: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
+        about: { '@id': 'https://muhammadmoaiz.netlify.app/#person' }
     };
     graph.push(profilePage);
 
@@ -145,7 +150,7 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
     if (faqList && faqList.length > 0) {
         const faqPage = {
             '@type': 'FAQPage',
-            '@id': 'https://codewithmoju.netlify.app/#faq',
+            '@id': 'https://muhammadmoaiz.netlify.app/#faq',
             mainEntity: faqList.map(item => ({
                 '@type': 'Question',
                 name: item.question,
@@ -162,7 +167,7 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
     if (projects && projects.length > 0) {
         graph.push({
             '@type': 'ItemList',
-            '@id': 'https://codewithmoju.netlify.app/#projectslist',
+            '@id': 'https://muhammadmoaiz.netlify.app/#projectslist',
             name: `Portfolio Projects by ${SITE.personId}`,
             description: 'Selected mobile, SaaS and web products showcasing React Native, Next.js and full-stack product engineering.',
             numberOfItems: projects.length,
@@ -174,7 +179,7 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
                     name: p.seoTitle || p.title,
                     description: p.seoDescription || p.description || '',
                     url: p.url || undefined,
-                    creator: { '@id': 'https://codewithmoju.netlify.app/#person' },
+                    creator: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                     ...(p.techStack && p.techStack.length > 0 ? {
                         keywords: p.techStack.map(t => TECH_STACK_NAMES[t] || t).join(', ')
                     } : {}),
@@ -187,11 +192,11 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
             const projectSlug = p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
             graph.push({
                 '@type': 'CreativeWork',
-                '@id': `https://codewithmoju.netlify.app/#project-${projectSlug}`,
+                '@id': `https://muhammadmoaiz.netlify.app/#project-${projectSlug}`,
                 name: p.seoTitle || p.title,
                 description: p.seoDescription || p.description || '',
                 url: p.url || undefined,
-                creator: { '@id': 'https://codewithmoju.netlify.app/#person' },
+                creator: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                 ...(p.techStack && p.techStack.length > 0 ? {
                     keywords: p.techStack.map(t => TECH_STACK_NAMES[t] || t).join(', ')
                 } : {}),
@@ -214,66 +219,66 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
 
                 graph.push({
                     '@type': 'VideoObject',
-                    '@id': `https://codewithmoju.netlify.app/#${studioSlug}`,
+                    '@id': `https://muhammadmoaiz.netlify.app/#${studioSlug}`,
                     name: s.seoTitle || s.title,
                     description: s.seoDescription || s.description || '',
                     url: s.url || undefined,
                     contentUrl: s.url || undefined,
                     ...(embedUrl ? { embedUrl } : {}),
-                    thumbnailUrl: s.thumbnailUrl || 'https://codewithmoju.netlify.app/og-image.jpg',
+                    thumbnailUrl: s.thumbnailUrl || 'https://muhammadmoaiz.netlify.app/og-image.jpg',
                     ...(s.duration ? { duration: `PT${s.duration.replace(':', 'M')}S` } : {}),
                     ...(s.date ? { uploadDate: formatIsoDate(s.date) } : {}),
                     ...(s.views ? { interactionStatistic: { '@type': 'InteractionCounter', interactionType: 'https://schema.org/WatchAction', userInteractionCount: s.views } } : {}),
-                    author: { '@id': 'https://codewithmoju.netlify.app/#person' },
+                    author: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                 });
             } else if (s.platform === 'blog') {
                 graph.push({
                     '@type': 'Article',
-                    '@id': `https://codewithmoju.netlify.app/#${studioSlug}`,
+                    '@id': `https://muhammadmoaiz.netlify.app/#${studioSlug}`,
                     headline: s.seoTitle || s.title,
                     description: s.seoDescription || s.description || '',
                     url: s.url || undefined,
-                    image: s.thumbnailUrl || 'https://codewithmoju.netlify.app/og-image.jpg',
+                    image: s.thumbnailUrl || 'https://muhammadmoaiz.netlify.app/og-image.jpg',
                     ...(s.date ? { datePublished: formatIsoDate(s.date) } : {}),
                     ...(s.readTime ? { timeRequired: `PT${s.readTime.replace(' min', '')}M` } : {}),
-                    author: { '@id': 'https://codewithmoju.netlify.app/#person' },
+                    author: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                 });
             } else if (s.platform === 'tiktok') {
                 graph.push({
                     '@type': 'VideoObject',
-                    '@id': `https://codewithmoju.netlify.app/#${studioSlug}`,
+                    '@id': `https://muhammadmoaiz.netlify.app/#${studioSlug}`,
                     name: s.seoTitle || s.title,
                     description: s.seoDescription || s.description || '',
                     url: s.url || undefined,
                     contentUrl: s.url || undefined,
-                    thumbnailUrl: s.thumbnailUrl || 'https://codewithmoju.netlify.app/og-image.jpg',
+                    thumbnailUrl: s.thumbnailUrl || 'https://muhammadmoaiz.netlify.app/og-image.jpg',
                     ...(s.date ? { uploadDate: formatIsoDate(s.date) } : {}),
                     ...(s.views ? { interactionStatistic: { '@type': 'InteractionCounter', interactionType: 'https://schema.org/WatchAction', userInteractionCount: s.views } } : {}),
                     ...(s.likes ? { aggregateRating: { '@type': 'AggregateRating', ratingCount: s.likes } } : {}),
-                    author: { '@id': 'https://codewithmoju.netlify.app/#person' },
+                    author: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                 });
             } else if (s.platform === 'instagram' || s.platform === 'x' || s.platform === 'linkedin') {
                 graph.push({
                     '@type': 'SocialMediaPosting',
-                    '@id': `https://codewithmoju.netlify.app/#${studioSlug}`,
+                    '@id': `https://muhammadmoaiz.netlify.app/#${studioSlug}`,
                     headline: s.seoTitle || s.title,
                     description: s.seoDescription || s.description || '',
                     url: s.url || undefined,
-                    image: s.thumbnailUrl || 'https://codewithmoju.netlify.app/og-image.jpg',
+                    image: s.thumbnailUrl || 'https://muhammadmoaiz.netlify.app/og-image.jpg',
                     ...(s.date ? { datePublished: formatIsoDate(s.date) } : {}),
                     ...(s.likes ? { interactionStatistic: { '@type': 'InteractionCounter', interactionType: 'https://schema.org/LikeAction', userInteractionCount: s.likes } } : {}),
-                    author: { '@id': 'https://codewithmoju.netlify.app/#person' },
+                    author: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                 });
             } else if (s.platform === 'codrops') {
                 graph.push({
                     '@type': 'Article',
-                    '@id': `https://codewithmoju.netlify.app/#${studioSlug}`,
+                    '@id': `https://muhammadmoaiz.netlify.app/#${studioSlug}`,
                     headline: s.seoTitle || s.title,
                     description: s.seoDescription || s.description || '',
                     url: s.url || undefined,
-                    image: s.thumbnailUrl || 'https://codewithmoju.netlify.app/og-image.jpg',
+                    image: s.thumbnailUrl || 'https://muhammadmoaiz.netlify.app/og-image.jpg',
                     ...(s.date ? { datePublished: formatIsoDate(s.date) } : {}),
-                    author: { '@id': 'https://codewithmoju.netlify.app/#person' },
+                    author: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                 });
             }
         });
@@ -284,7 +289,7 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
         const categoryLabels = { sotd: 'Site of the Day', sotm: 'Site of the Month', other: 'Honorable Mention' };
         graph.push({
             '@type': 'ItemList',
-            '@id': 'https://codewithmoju.netlify.app/#awardslist',
+            '@id': 'https://muhammadmoaiz.netlify.app/#awardslist',
             name: `Career, education and product highlights of ${SITE.personId}`,
             numberOfItems: awards.length,
             itemListElement: awards.map((a, i) => ({
@@ -297,7 +302,7 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
                     url: a.url || undefined,
                     description: a.seoDescription || undefined,
                     award: categoryLabels[a.category] || a.category,
-                    creator: { '@id': 'https://codewithmoju.netlify.app/#person' },
+                    creator: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                 }
             }))
         });
@@ -380,8 +385,14 @@ function buildLlmsTxt(globalInfo, projects, studio, awards, faqList) {
 
     content += `## Contact\n`;
     content += `- Portfolio: ${SITE.origin}\n`;
-    content += `- GitHub: https://github.com/MuhammadMoaiz001\n`;
+    content += `- Link hub: https://kippoo.netlify.app/muhammadmoaiz\n`;
+    content += `- GitHub: https://github.com/codewithmoju\n`;
     content += `- LinkedIn: https://www.linkedin.com/in/muhammadmoaiz\n`;
+    content += `- Instagram: https://instagram.com/codewithmoju\n`;
+    content += `- Facebook: https://facebook.com/profile.php?id=61575568985059\n`;
+    content += `- TikTok: https://tiktok.com/@codewithmoju\n`;
+    content += `- X (Twitter): https://twitter.com/M_Moaiz001\n`;
+    content += `- WhatsApp: https://wa.me/923019684007\n`;
     content += `\n`;
 
     if (faqList && faqList.length > 0) {

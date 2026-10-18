@@ -22,4 +22,4 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
-Sitemap: https://codewithmoju.netlify.app/sitemap.xml
+Sitemap: https://muhammadmoaiz.netlify.app/sitemap.xml

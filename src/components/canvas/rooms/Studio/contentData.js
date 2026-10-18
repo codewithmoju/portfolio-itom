@@ -9,7 +9,7 @@
  * Platforms: 'blog', 'career', 'education'
  */
 
-const PORTFOLIO_URL = 'https://codewithmoju.netlify.app/';
+const PORTFOLIO_URL = 'https://muhammadmoaiz.netlify.app/';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/muhammadmoaiz';
 
 export const PLATFORM_CONFIG = {

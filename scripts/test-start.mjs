@@ -55,6 +55,7 @@ function setup({ reduced = false } = {}) {
     hidden: false,
     querySelector: () => notice,
     querySelectorAll: selector => selector === '.work-link' ? links : [links[1]],
+    getElementById: () => null,
     createElement: () => new Element(),
     createDocumentFragment: () => new Element(),
   });
@@ -78,18 +79,26 @@ function setup({ reduced = false } = {}) {
 
 test('all destinations are present in HTML, and the portfolio appears once', () => {
   const anchors = [...html.matchAll(/<a\b([^>]+)>([\s\S]*?)<\/a>/g)];
-  assert.equal(anchors.length, 14); // Thirteen destinations and the skip link.
+  assert.equal(anchors.length, 14); // Skip link, two work links, and eleven profile links.
   assert.equal(anchors.filter(match => /href="\/"/.test(match[1])).length, 1);
-  assert.equal(anchors.filter(match => /data-pending/.test(match[1])).length, 8);
+  // Every destination ships live, so nothing should be flagged as coming soon.
+  assert.equal(anchors.filter(match => /data-pending/.test(match[1])).length, 0);
   const urls = anchors.map(match => match[1].match(/href="(https:[^"]+)"/)?.[1]).filter(Boolean);
   assert.deepEqual(urls, [
-    'https://www.facebook.com/people/ITom/61586563487664/',
-    'https://github.com/ITomPoland',
-    'https://www.instagram.com/itom.dev/',
-    'https://www.linkedin.com/in/tomasz-szmajda-259337305/',
+    'https://www.namsstudio.com',
+    'https://muhammadmoaiz.netlify.app/',
+    'https://kippoo.netlify.app/muhammadmoaiz',
+    'https://github.com/codewithmoju',
+    'https://www.linkedin.com/in/muhammadmoaiz',
+    'https://instagram.com/codewithmoju',
+    'https://facebook.com/profile.php?id=61575568985059',
+    'https://tiktok.com/@codewithmoju',
+    'https://twitter.com/M_Moaiz001',
+    'https://wa.me/923019684007',
+    'https://www.namsstudio.com',
   ]);
   assert.match(html, /aria-label="Interactive Portfolio"/);
-  assert.match(html, /aria-label="UI Sketchbook"/);
+  assert.match(html, /aria-label="NAMS Studio"/);
 });
 
 test('static entry stays isolated and uses only one locally hosted font', () => {

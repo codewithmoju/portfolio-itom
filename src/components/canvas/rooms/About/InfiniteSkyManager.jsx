@@ -452,10 +452,10 @@ export const AWARDS_DATA = {
         layout: 'certificate_grid',
         title: 'Highlights',
         items: [
-            { label: 'Age first app shipped', date: '16', image: null, url: 'https://codewithmoju.netlify.app/' },
-            { label: 'Years building products', date: '3+', image: null, url: 'https://codewithmoju.netlify.app/' },
-            { label: 'Portfolio-grade builds', date: '12+', image: null, url: 'https://codewithmoju.netlify.app/' },
-            { label: 'Live or shipped products', date: '5+', image: null, url: 'https://codewithmoju.netlify.app/' }
+            { label: 'Age first app shipped', date: '16', image: null, url: 'https://muhammadmoaiz.netlify.app/' },
+            { label: 'Years building products', date: '3+', image: null, url: 'https://muhammadmoaiz.netlify.app/' },
+            { label: 'Portfolio-grade builds', date: '12+', image: null, url: 'https://muhammadmoaiz.netlify.app/' },
+            { label: 'Live or shipped products', date: '5+', image: null, url: 'https://muhammadmoaiz.netlify.app/' }
         ],
         platformConfig: {
             label: 'HIGHLIGHTS',

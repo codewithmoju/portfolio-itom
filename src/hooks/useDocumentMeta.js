@@ -10,7 +10,7 @@ import { useScene } from '../context/SceneContext';
  */
 
 // Public site origin used for canonical/OG URLs
-const SITE_ORIGIN = 'https://codewithmoju.netlify.app';
+const SITE_ORIGIN = 'https://muhammadmoaiz.netlify.app';
 
 const ROOM_META = {
     null: {

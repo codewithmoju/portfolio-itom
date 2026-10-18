@@ -42,7 +42,7 @@ export const FALLBACK_PROJECTS = [
         id: 'routeradiant',
         title: 'ROUTERADIANT',
         front: '/textures/gallery/routeradiant.png',
-        url: 'https://codewithmoju.netlify.app/',
+        url: 'https://www.routeradiant.com/',
         description: 'Private AI learning SaaS built around one clear mission: make structured, personalized education easier to access. Public-safe case study — learner value and outcome are shown, the internal system stays protected.',
         techStack: []
     },
@@ -50,7 +50,7 @@ export const FALLBACK_PROJECTS = [
         id: 'namsflow',
         title: 'NAMS FLOW',
         front: '/textures/gallery/namsflow.png',
-        url: 'https://codewithmoju.netlify.app/',
+        url: 'https://muhammadmoaiz.netlify.app/',
         description: 'Private customer communication SaaS for organized multi-channel business workflows. The public story covers operator value and experience; integrations, billing and internal automation stay private.',
         techStack: []
     },
@@ -58,7 +58,7 @@ export const FALLBACK_PROJECTS = [
         id: 'kippo',
         title: 'KIPPO',
         front: '/textures/gallery/kippo.png',
-        url: 'https://codewithmoju.netlify.app/',
+        url: 'https://kippoo.netlify.app/',
         description: 'Private social media management SaaS for teams and agencies — content planning, scheduling, analytics and multi-account workflows in one calmer workspace.',
         techStack: []
     },
@@ -66,7 +66,7 @@ export const FALLBACK_PROJECTS = [
         id: 'stocksuite',
         title: 'STOCKSUITE',
         front: '/textures/gallery/stocksuite.png',
-        url: 'https://codewithmoju.netlify.app/',
+        url: 'https://muhammadmoaiz.netlify.app/',
         description: 'Private retail POS SaaS for inventory, sales and store operations. Built for real retail counters where speed and clarity matter, with the internal system kept non-public.',
         techStack: []
     },
@@ -106,7 +106,7 @@ export const FALLBACK_PROJECTS = [
         id: 'nemodelivers',
         title: 'NEMODELIVERS',
         front: '/textures/gallery/nemodelivers.jpg',
-        url: 'https://codewithmoju.netlify.app/',
+        url: 'https://muhammadmoaiz.netlify.app/',
         description: 'Cross-platform food delivery experience — restaurant discovery, menu browsing, ordering and progress tracking, designed around speed, trust and clear decisions.',
         techStack: ['/textures/gallery/reactlogo.webp', '/textures/gallery/firebaselogo.webp', '/textures/gallery/jslogo.webp']
     },
@@ -114,7 +114,7 @@ export const FALLBACK_PROJECTS = [
         id: 'velvox',
         title: 'VELVOX',
         front: '/textures/gallery/velvox.png',
-        url: 'https://codewithmoju.netlify.app/',
+        url: 'https://muhammadmoaiz.netlify.app/',
         description: 'Premium men\'s fashion storefront with editorial e-commerce UX — collection browsing, product detail clarity, size selection and a cart-to-checkout-ready flow.',
         techStack: ['/textures/gallery/reactlogo.webp', '/textures/gallery/jslogo.webp', '/textures/gallery/tailwindlogo.webp']
     },
@@ -122,7 +122,7 @@ export const FALLBACK_PROJECTS = [
         id: 'pakfiler',
         title: 'PAKFILER',
         front: '/textures/gallery/pakfiler.jpg',
-        url: 'https://codewithmoju.netlify.app/',
+        url: 'https://muhammadmoaiz.netlify.app/',
         description: 'Protected Pakistani filing SaaS with guided user workflows. The public version explains only the product category and user-facing value; source, stack and business logic remain private.',
         techStack: []
     },

@@ -414,17 +414,17 @@ const ContactRoom = ({ showRoom, onReady, isExiting, isWarmup }) => {
                 rotation={[0, 0.3, 0]}
                 texturePath="/textures/contact/beczka.webp"
                 label="GITHUB"
-                onClick={() => window.open('https://github.com/MuhammadMoaiz001', '_blank')}
+                onClick={() => window.open('https://github.com/codewithmoju', '_blank')}
                 paintOnBeforeCompile={onBeforeCompile}
                 paintUniforms={uniformsData}
             />
-            {/* TWITTER / X */}
+            {/* WHATSAPP */}
             <SocialBarrel
                 position={isMobile ? [1.2, 0.5, -10] : [3, 0.5, -10]}
                 rotation={[0, -0.2, 0]}
                 texturePath="/textures/contact/beczka.webp"
-                label="TWITTER"
-                onClick={() => window.open('https://twitter.com/M_Moaiz001', '_blank')}
+                label="WHATSAPP"
+                onClick={() => window.open('https://wa.me/923019684007', '_blank')}
                 paintOnBeforeCompile={onBeforeCompile}
                 paintUniforms={uniformsData}
             />
@@ -434,7 +434,7 @@ const ContactRoom = ({ showRoom, onReady, isExiting, isWarmup }) => {
                 rotation={[0, -0.3, 0]}
                 texturePath="/textures/contact/beczka.webp"
                 label="PORTFOLIO"
-                onClick={() => window.open('https://codewithmoju.netlify.app/', '_blank')}
+                onClick={() => window.open('https://muhammadmoaiz.netlify.app/', '_blank')}
                 paintOnBeforeCompile={onBeforeCompile}
                 paintUniforms={uniformsData}
             />
