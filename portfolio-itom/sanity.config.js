@@ -7,7 +7,9 @@ export default defineConfig({
   name: 'default',
   title: 'portfolio-itom',
 
-  projectId: 'kv5wjjmj',
+  // Placeholder on purpose: this Studio must not point at another project's
+  // dataset. Replace with your own Sanity projectId to re-enable the CMS.
+  projectId: 'placeholder',
   dataset: 'production',
 
   plugins: [

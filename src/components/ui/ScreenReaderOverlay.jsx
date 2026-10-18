@@ -1,5 +1,8 @@
 import { useScene } from '../../context/SceneContext';
 import { useGalleryProjects, useStudioContent, useAwards } from '../../hooks/useSanityData';
+import { FALLBACK_PROJECTS } from '../canvas/rooms/Gallery/GalleryRoom';
+import { CONTENT_DATA } from '../canvas/rooms/Studio/contentData';
+import { AWARDS_DATA } from '../canvas/rooms/About/InfiniteSkyManager';
 import '../../styles/ScreenReaderOverlay.scss';
 
 /**
@@ -12,10 +15,16 @@ import '../../styles/ScreenReaderOverlay.scss';
 const ScreenReaderOverlay = () => {
     const { hasEntered, isInRoom, currentRoom, teleportTo, requestExit } = useScene();
     
-    // Pobieranie danych do wygenerowania niewidocznego HTML-a dla SEO / robotów
-    const projects = useGalleryProjects();
-    const studio = useStudioContent();
-    const awards = useAwards();
+    // Pobieranie danych do wygenerowania niewidocznego HTML-a dla SEO / robotów.
+    // Gdy CMS jest wyłączony, hooki zwracają null — wtedy korzystamy z lokalnych
+    // danych, żeby treść pozostała dostępna dla czytników ekranu i robotów.
+    const sanityProjects = useGalleryProjects();
+    const sanityStudio = useStudioContent();
+    const sanityAwards = useAwards();
+
+    const projects = sanityProjects || FALLBACK_PROJECTS;
+    const studio = sanityStudio || CONTENT_DATA;
+    const awards = sanityAwards || AWARDS_DATA;
 
     return (
         <div className="sr-overlay" role="complementary" aria-label="Accessible navigation for 3D portfolio">
@@ -26,11 +35,11 @@ const ScreenReaderOverlay = () => {
 
             {/* Main accessible navigation */}
             <nav id="sr-main-nav" className="sr-only" aria-label="Portfolio rooms">
-                <h1>ITom — Creative Developer Portfolio</h1>
+                <h1>Muhammad Moaiz — Full-Stack Mobile Developer Portfolio</h1>
                 <h2>Portfolio Navigation</h2>
 
                 {!hasEntered && (
-                    <p>Welcome to ITom's interactive 3D portfolio. Click or press Enter on the doors to enter.</p>
+                    <p>Welcome to Muhammad Moaiz's interactive 3D portfolio. Click or press Enter on the doors to enter.</p>
                 )}
 
                 {hasEntered && !isInRoom && (
@@ -54,7 +63,7 @@ const ScreenReaderOverlay = () => {
                             </li>
                             <li>
                                 <button onClick={() => teleportTo('studio')} type="button">
-                                    The Studio — Technologies and experience
+                                    The Studio — Notes, experience and education
                                 </button>
                             </li>
                         </ul>
@@ -77,11 +86,11 @@ const ScreenReaderOverlay = () => {
                         {currentRoom === 'about' && (
                             <div aria-label="About room content">
                                 <h3>About Me</h3>
-                                <p>This room contains my personal story, awards, journey milestones, and technology skills displayed as interactive balloons.</p>
+                                <p>This room contains my personal story, career and education milestones, and technology skills displayed as interactive balloons.</p>
                                 
                                 {awards && (
                                     <section>
-                                        <h4>My Awards</h4>
+                                        <h4>My Credentials</h4>
                                         <ul>
                                             {awards.sotd && awards.sotd.items && awards.sotd.items.map((a, i) => (
                                                 <li key={i}>{a.label} - {a.date} {a.url && <a href={a.url}>View</a>}</li>
@@ -124,7 +133,7 @@ const ScreenReaderOverlay = () => {
                         {currentRoom === 'studio' && (
                             <div aria-label="Studio room content">
                                 <h3>The Studio</h3>
-                                <p>Explore my experience and skills on rotating monitors. Click a monitor to read detailed information about my work.</p>
+                                <p>Explore my writing, experience and education on rotating monitors. Click a monitor to read detailed information about my work.</p>
 
                                 {studio && studio.length > 0 && (
                                     <ul>

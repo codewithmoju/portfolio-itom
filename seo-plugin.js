@@ -1,24 +1,88 @@
 import { createClient } from '@sanity/client';
 
+// NOTE: Sentinel value on purpose. This repository ships with local, hardcoded
+// portfolio data (Muhammad Moaiz), so the build-time SEO plugin must not pull
+// content from another project's Sanity dataset. Set a real projectId only if
+// you intend to source SEO data from Sanity.
+// Must stay lowercase-alphanumeric: @sanity/client validates the projectId
+// charset when the client is created.
+const SANITY_PROJECT_ID = 'placeholder';
+
 const sanityClient = createClient({
-    projectId: 'kv5wjjmj',
+    projectId: SANITY_PROJECT_ID,
     dataset: 'production',
     useCdn: true,
     apiVersion: '2024-03-01',
 });
 
+const isSanityConfigured = SANITY_PROJECT_ID !== 'placeholder';
+
+// ============================================
+// LOCAL SEO DATA (Muhammad Moaiz)
+// Used for JSON-LD + llms.txt when Sanity is not configured.
+// Mirrors src/data in the Myportfolio repo and the in-app content.
+// ============================================
+const SITE = {
+    origin: 'https://muhammadmoaiz.netlify.app',
+    personId: 'Muhammad Moaiz',
+    alternateName: ['Moaiz', 'codewithmoju'],
+    jobTitle: 'Full-Stack Mobile Developer',
+    title: 'Muhammad Moaiz | Full-Stack Mobile Developer Portfolio',
+    description: 'Interactive 3D developer portfolio by Muhammad Moaiz — Full-Stack Mobile Developer (React Native + Next.js) and Co-Founder of NAMS Studio. Explore mobile apps, SaaS products & AI tools in a hand-drawn gallery.',
+    aboutMe: 'Muhammad Moaiz shipped his first freelance React Native app at 16 and has been building ever since. He co-founded NAMS Studio in Lahore, Pakistan, and studies Computer Software Engineering (BSSE) at Minhaj University Lahore. He is a product-minded developer focused on mobile apps, SaaS tools, AI products, and automation systems that solve real problems.',
+    knowsAbout: ['React Native', 'React', 'Next.js', 'TypeScript', 'JavaScript', 'Firebase', 'Supabase', 'PostgreSQL', 'Fastify', 'REST APIs', 'Expo', 'Tailwind CSS', 'Redux'],
+    sameAs: [
+        'https://muhammadmoaiz.netlify.app/',
+        'https://kippoo.netlify.app/muhammadmoaiz',
+        'https://github.com/codewithmoju',
+        'https://www.linkedin.com/in/muhammadmoaiz',
+        'https://instagram.com/codewithmoju',
+        'https://facebook.com/profile.php?id=61575568985059',
+        'https://tiktok.com/@codewithmoju',
+        'https://twitter.com/M_Moaiz001',
+        'https://wa.me/923019684007',
+    ],
+};
+
+const LOCAL_PROJECTS = [
+    { title: 'RouteRadiant', description: 'Private AI learning SaaS built around one clear mission: make structured, personalized education easier to access. Public-safe case study — learner value and outcome are shown, the internal system stays protected.', url: 'https://www.routeradiant.com/' },
+    { title: 'NAMS Flow', description: 'Private customer communication SaaS for organized multi-channel business workflows. The public story covers operator value and experience; integrations, billing and internal automation stay private.', url: SITE.origin },
+    { title: 'Kippo', description: 'Private social media management SaaS for teams and agencies — content planning, scheduling, analytics and multi-account workflows in one calmer workspace.', url: 'https://kippoo.netlify.app/' },
+    { title: 'StockSuite', description: 'Private retail POS SaaS for inventory, sales and store operations. Built for real retail counters where speed and clarity matter, with the internal system kept non-public.', url: SITE.origin },
+    { title: 'NAMS Studio', description: 'Official NAMS Studio agency website — app development, web development, UI/UX and SEO services, presented with motion-driven brand storytelling and selected works.', url: 'https://www.namsstudio.com' },
+    { title: 'BudgetO', description: 'Premium personal finance tracking app for expenses, income, categories, currencies and insights — a complete React Native fintech build with Firebase auth, storage and biometric quick login.', url: 'https://github.com/codewithmoju/Finance-tracking-app' },
+    { title: 'SpotSpace', description: 'Full-stack parking reservation and facility management app. Drivers discover facilities and book spots; admins configure sections, spot types, availability and pricing.', url: 'https://github.com/codewithmoju/SpotSpace' },
+    { title: 'SkyCast', description: 'Weather forecasting app with real-time conditions and forecast views across Android, iOS and web. A clean, focused cross-platform utility build on live API data.', url: 'https://github.com/codewithmoju/wheather-forcasting-app' },
+    { title: 'NemoDelivers', description: 'Cross-platform food delivery experience — restaurant discovery, menu browsing, ordering and progress tracking, designed around speed, trust and clear decisions.', url: SITE.origin },
+    { title: 'Velvox', description: 'Premium men\'s fashion storefront with editorial e-commerce UX — collection browsing, product detail clarity, size selection and a cart-to-checkout-ready flow.', url: SITE.origin },
+    { title: 'PakFiler', description: 'Protected Pakistani filing SaaS with guided user workflows. The public version explains only the product category and user-facing value; source, stack and business logic remain private.', url: SITE.origin },
+];
+
+const LOCAL_EXPERIENCE = [
+    { role: 'React Native Developer', company: 'IT Intelligentsia', period: 'Sep 2025 – Present', summary: 'Building and maintaining cross-platform mobile features in React Native & TypeScript for production apps.' },
+    { role: 'Co-Founder & Full-Stack Developer', company: 'NAMS STUDIO', period: 'Apr 2023 – Present', summary: 'Co-founded a digital agency delivering web, mobile, SaaS and automation products including RouteRadiant, Kippo, StockSuite and NAMS Flow.' },
+    { role: 'Software Engineer Intern', company: 'DevelopersHub Corporation', period: 'Nov 2024 – Jan 2025', summary: 'Shipped React Native UI components and small applications through PR review in a structured 3-month internship.' },
+];
+
+const LOCAL_EDUCATION = [
+    { degree: 'BSSE, Computer Software Engineering', institution: 'Minhaj University Lahore', period: 'Oct 2024 – Oct 2028' },
+    { degree: 'Intermediate, Computer Science', institution: 'Aims Group of Colleges', period: '2022 – 2024' },
+    { degree: 'Matriculation', institution: 'Govt. School Shorkot Cantt', period: 'Completed' },
+];
+
+const LOCAL_NOTES = [
+    { title: 'Building Private SaaS Without Oversharing the System', date: 'Jun 27, 2026', excerpt: 'How I present serious product work publicly while protecting architecture, business logic, integrations and client-sensitive workflows.' },
+    { title: 'Why React Native is Still My Go-To for Mobile Apps', date: 'Jan 28, 2025', excerpt: 'After shipping mobile apps across finance, education, parking, delivery and utility categories, here is why React Native remains my default choice.' },
+    { title: 'Co-Founding a Digital Agency at 18 — What Nobody Tells You', date: 'Nov 5, 2024', excerpt: 'The real lessons from building NAMS Studio: client management, scope creep, cash flow, and staying sane while shipping.' },
+];
+
 // Tech stack filename -> human-readable name mapping for JSON-LD
 const TECH_STACK_NAMES = {
     'reactlogo.webp': 'React',
-    'htmllogo.webp': 'HTML',
     'csslogo.webp': 'CSS',
     'jslogo.webp': 'JavaScript',
     'tailwindlogo.webp': 'Tailwind CSS',
     'firebaselogo.webp': 'Firebase',
-    'netlifylogo.webp': 'Netlify',
-    'wordpresslogo.webp': 'WordPress',
-    'elementorlogo.webp': 'Elementor',
-    'phplogo.webp': 'PHP',
 };
 
 /**
@@ -41,13 +105,13 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
     // --- 1. Person: Central node of the Knowledge Graph ---
     const person = {
         '@type': 'Person',
-        '@id': 'https://itomdev.com/#person',
-        name: 'Tomasz Szmajda',
-        alternateName: ['ITom', 'ITom Dev', 'Tomasz ITom Szmajda'],
-        url: 'https://itomdev.com',
-        jobTitle: 'Creative Frontend Developer',
-        description: globalInfo?.aboutMe || 'Creative developer specializing in 3D web experiences.',
-        knowsAbout: ['React', 'Three.js', 'JavaScript', 'TypeScript', 'GSAP', 'Next.js', 'WebGL', '3D Graphics', 'Web Development'],
+        '@id': 'https://muhammadmoaiz.netlify.app/#person',
+        name: SITE.personId,
+        alternateName: SITE.alternateName,
+        url: SITE.origin,
+        jobTitle: SITE.jobTitle,
+        description: globalInfo?.aboutMe || SITE.aboutMe,
+        knowsAbout: SITE.knowsAbout,
         sameAs: [
             globalInfo?.linkedinUrl,
             globalInfo?.githubUrl,
@@ -55,28 +119,30 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
             globalInfo?.xUrl,
             globalInfo?.tiktokUrl,
             globalInfo?.youtubeUrl
-        ].filter(Boolean)
+        ].filter(Boolean).length > 0
+            ? [globalInfo?.linkedinUrl, globalInfo?.githubUrl, globalInfo?.instagramUrl, globalInfo?.xUrl, globalInfo?.tiktokUrl, globalInfo?.youtubeUrl].filter(Boolean)
+            : SITE.sameAs
     };
     graph.push(person);
 
     // --- 2. WebSite ---
     const website = {
         '@type': 'WebSite',
-        '@id': 'https://itomdev.com/#website',
-        url: 'https://itomdev.com',
-        name: globalInfo?.siteTitle || 'Tomasz "ITom" Szmajda | Creative 3D Portfolio',
-        description: globalInfo?.siteDescription || 'Interactive 3D Developer Portfolio by Tomasz Szmajda',
-        publisher: { '@id': 'https://itomdev.com/#person' }
+        '@id': 'https://muhammadmoaiz.netlify.app/#website',
+        url: SITE.origin,
+        name: globalInfo?.siteTitle || SITE.title,
+        description: globalInfo?.siteDescription || SITE.description,
+        publisher: { '@id': 'https://muhammadmoaiz.netlify.app/#person' }
     };
     graph.push(website);
 
     // --- 3. ProfilePage ---
     const profilePage = {
         '@type': 'ProfilePage',
-        '@id': 'https://itomdev.com/#profilepage',
-        url: 'https://itomdev.com',
-        mainEntity: { '@id': 'https://itomdev.com/#person' },
-        about: { '@id': 'https://itomdev.com/#person' }
+        '@id': 'https://muhammadmoaiz.netlify.app/#profilepage',
+        url: SITE.origin,
+        mainEntity: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
+        about: { '@id': 'https://muhammadmoaiz.netlify.app/#person' }
     };
     graph.push(profilePage);
 
@@ -84,7 +150,7 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
     if (faqList && faqList.length > 0) {
         const faqPage = {
             '@type': 'FAQPage',
-            '@id': 'https://itomdev.com/#faq',
+            '@id': 'https://muhammadmoaiz.netlify.app/#faq',
             mainEntity: faqList.map(item => ({
                 '@type': 'Question',
                 name: item.question,
@@ -101,9 +167,9 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
     if (projects && projects.length > 0) {
         graph.push({
             '@type': 'ItemList',
-            '@id': 'https://itomdev.com/#projectslist',
-            name: 'Portfolio Projects by Tomasz "ITom" Szmajda',
-            description: 'Selected web development projects showcasing React, Three.js, and creative frontend engineering.',
+            '@id': 'https://muhammadmoaiz.netlify.app/#projectslist',
+            name: `Portfolio Projects by ${SITE.personId}`,
+            description: 'Selected mobile, SaaS and web products showcasing React Native, Next.js and full-stack product engineering.',
             numberOfItems: projects.length,
             itemListElement: projects.map((p, i) => ({
                 '@type': 'ListItem',
@@ -113,7 +179,7 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
                     name: p.seoTitle || p.title,
                     description: p.seoDescription || p.description || '',
                     url: p.url || undefined,
-                    creator: { '@id': 'https://itomdev.com/#person' },
+                    creator: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                     ...(p.techStack && p.techStack.length > 0 ? {
                         keywords: p.techStack.map(t => TECH_STACK_NAMES[t] || t).join(', ')
                     } : {}),
@@ -126,11 +192,11 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
             const projectSlug = p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
             graph.push({
                 '@type': 'CreativeWork',
-                '@id': `https://itomdev.com/#project-${projectSlug}`,
+                '@id': `https://muhammadmoaiz.netlify.app/#project-${projectSlug}`,
                 name: p.seoTitle || p.title,
                 description: p.seoDescription || p.description || '',
                 url: p.url || undefined,
-                creator: { '@id': 'https://itomdev.com/#person' },
+                creator: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                 ...(p.techStack && p.techStack.length > 0 ? {
                     keywords: p.techStack.map(t => TECH_STACK_NAMES[t] || t).join(', ')
                 } : {}),
@@ -153,66 +219,66 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
 
                 graph.push({
                     '@type': 'VideoObject',
-                    '@id': `https://itomdev.com/#${studioSlug}`,
+                    '@id': `https://muhammadmoaiz.netlify.app/#${studioSlug}`,
                     name: s.seoTitle || s.title,
                     description: s.seoDescription || s.description || '',
                     url: s.url || undefined,
                     contentUrl: s.url || undefined,
                     ...(embedUrl ? { embedUrl } : {}),
-                    thumbnailUrl: s.thumbnailUrl || 'https://itomdev.com/og-image.webp',
+                    thumbnailUrl: s.thumbnailUrl || 'https://muhammadmoaiz.netlify.app/og-image.jpg',
                     ...(s.duration ? { duration: `PT${s.duration.replace(':', 'M')}S` } : {}),
                     ...(s.date ? { uploadDate: formatIsoDate(s.date) } : {}),
                     ...(s.views ? { interactionStatistic: { '@type': 'InteractionCounter', interactionType: 'https://schema.org/WatchAction', userInteractionCount: s.views } } : {}),
-                    author: { '@id': 'https://itomdev.com/#person' },
+                    author: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                 });
             } else if (s.platform === 'blog') {
                 graph.push({
                     '@type': 'Article',
-                    '@id': `https://itomdev.com/#${studioSlug}`,
+                    '@id': `https://muhammadmoaiz.netlify.app/#${studioSlug}`,
                     headline: s.seoTitle || s.title,
                     description: s.seoDescription || s.description || '',
                     url: s.url || undefined,
-                    image: s.thumbnailUrl || 'https://itomdev.com/og-image.webp',
+                    image: s.thumbnailUrl || 'https://muhammadmoaiz.netlify.app/og-image.jpg',
                     ...(s.date ? { datePublished: formatIsoDate(s.date) } : {}),
                     ...(s.readTime ? { timeRequired: `PT${s.readTime.replace(' min', '')}M` } : {}),
-                    author: { '@id': 'https://itomdev.com/#person' },
+                    author: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                 });
             } else if (s.platform === 'tiktok') {
                 graph.push({
                     '@type': 'VideoObject',
-                    '@id': `https://itomdev.com/#${studioSlug}`,
+                    '@id': `https://muhammadmoaiz.netlify.app/#${studioSlug}`,
                     name: s.seoTitle || s.title,
                     description: s.seoDescription || s.description || '',
                     url: s.url || undefined,
                     contentUrl: s.url || undefined,
-                    thumbnailUrl: s.thumbnailUrl || 'https://itomdev.com/og-image.webp',
+                    thumbnailUrl: s.thumbnailUrl || 'https://muhammadmoaiz.netlify.app/og-image.jpg',
                     ...(s.date ? { uploadDate: formatIsoDate(s.date) } : {}),
                     ...(s.views ? { interactionStatistic: { '@type': 'InteractionCounter', interactionType: 'https://schema.org/WatchAction', userInteractionCount: s.views } } : {}),
                     ...(s.likes ? { aggregateRating: { '@type': 'AggregateRating', ratingCount: s.likes } } : {}),
-                    author: { '@id': 'https://itomdev.com/#person' },
+                    author: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                 });
             } else if (s.platform === 'instagram' || s.platform === 'x' || s.platform === 'linkedin') {
                 graph.push({
                     '@type': 'SocialMediaPosting',
-                    '@id': `https://itomdev.com/#${studioSlug}`,
+                    '@id': `https://muhammadmoaiz.netlify.app/#${studioSlug}`,
                     headline: s.seoTitle || s.title,
                     description: s.seoDescription || s.description || '',
                     url: s.url || undefined,
-                    image: s.thumbnailUrl || 'https://itomdev.com/og-image.webp',
+                    image: s.thumbnailUrl || 'https://muhammadmoaiz.netlify.app/og-image.jpg',
                     ...(s.date ? { datePublished: formatIsoDate(s.date) } : {}),
                     ...(s.likes ? { interactionStatistic: { '@type': 'InteractionCounter', interactionType: 'https://schema.org/LikeAction', userInteractionCount: s.likes } } : {}),
-                    author: { '@id': 'https://itomdev.com/#person' },
+                    author: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                 });
             } else if (s.platform === 'codrops') {
                 graph.push({
                     '@type': 'Article',
-                    '@id': `https://itomdev.com/#${studioSlug}`,
+                    '@id': `https://muhammadmoaiz.netlify.app/#${studioSlug}`,
                     headline: s.seoTitle || s.title,
                     description: s.seoDescription || s.description || '',
                     url: s.url || undefined,
-                    image: s.thumbnailUrl || 'https://itomdev.com/og-image.webp',
+                    image: s.thumbnailUrl || 'https://muhammadmoaiz.netlify.app/og-image.jpg',
                     ...(s.date ? { datePublished: formatIsoDate(s.date) } : {}),
-                    author: { '@id': 'https://itomdev.com/#person' },
+                    author: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                 });
             }
         });
@@ -223,8 +289,8 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
         const categoryLabels = { sotd: 'Site of the Day', sotm: 'Site of the Month', other: 'Honorable Mention' };
         graph.push({
             '@type': 'ItemList',
-            '@id': 'https://itomdev.com/#awardslist',
-            name: 'Web Design Awards received by Tomasz "ITom" Szmajda',
+            '@id': 'https://muhammadmoaiz.netlify.app/#awardslist',
+            name: `Career, education and product highlights of ${SITE.personId}`,
             numberOfItems: awards.length,
             itemListElement: awards.map((a, i) => ({
                 '@type': 'ListItem',
@@ -236,7 +302,7 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
                     url: a.url || undefined,
                     description: a.seoDescription || undefined,
                     award: categoryLabels[a.category] || a.category,
-                    creator: { '@id': 'https://itomdev.com/#person' },
+                    creator: { '@id': 'https://muhammadmoaiz.netlify.app/#person' },
                 }
             }))
         });
@@ -250,9 +316,9 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
 
 // Helper to generate the llms.txt content in clean Markdown
 function buildLlmsTxt(globalInfo, projects, studio, awards, faqList) {
-    const siteTitle = globalInfo?.siteTitle || 'Tomasz "ITom" Szmajda | Creative 3D Portfolio';
-    const siteDescription = globalInfo?.siteDescription || 'Interactive 3D Developer Portfolio';
-    const aboutMe = globalInfo?.aboutMe || 'I am a creative developer specializing in 3D web experiences.';
+    const siteTitle = globalInfo?.siteTitle || SITE.title;
+    const siteDescription = globalInfo?.siteDescription || SITE.description;
+    const aboutMe = globalInfo?.aboutMe || SITE.aboutMe;
 
     let content = `# ${siteTitle}\n`;
     content += `> ${siteDescription}\n\n`;
@@ -261,13 +327,34 @@ function buildLlmsTxt(globalInfo, projects, studio, awards, faqList) {
     content += `${aboutMe}\n\n`;
 
     content += `## Core Technologies & Skills\n`;
-    content += `- React, Three.js, React Three Fiber (R3F), GSAP (GreenSock), JavaScript, TypeScript, Next.js, WebGL, 3D Graphics, Web Development.\n\n`;
+    content += `- Frontend: HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind CSS, Redux.\n`;
+    content += `- Mobile: React Native, Expo, React Navigation, NativeWind.\n`;
+    content += `- Backend & Database: Firebase, Supabase, PostgreSQL, Fastify, REST APIs, OpenAPI.\n`;
+    content += `- Tools: Git, GitHub, Vercel, Netlify, EAS Build, Vitest, and AI-assisted development tools.\n\n`;
+
+    content += `## Professional Experience\n`;
+    LOCAL_EXPERIENCE.forEach(e => {
+        content += `- **${e.role}** at ${e.company} (${e.period}): ${e.summary}\n`;
+    });
+    content += `\n`;
+
+    content += `## Education\n`;
+    LOCAL_EDUCATION.forEach(e => {
+        content += `- **${e.degree}** — ${e.institution} (${e.period})\n`;
+    });
+    content += `\n`;
 
     if (projects && projects.length > 0) {
         content += `## Selected Portfolio Projects\n`;
         projects.forEach(p => {
             const tech = p.techStack ? ` (Tech: ${p.techStack.map(t => TECH_STACK_NAMES[t] || t).join(', ')})` : '';
-            content += `- [${p.seoTitle || p.title}](${p.url || 'https://itomdev.com'}): ${p.seoDescription || p.description || ''}${tech}\n`;
+            content += `- [${p.seoTitle || p.title}](${p.url || SITE.origin}): ${p.seoDescription || p.description || ''}${tech}\n`;
+        });
+        content += `\n`;
+    } else {
+        content += `## Selected Portfolio Projects\n`;
+        LOCAL_PROJECTS.forEach(p => {
+            content += `- [${p.title}](${p.url}): ${p.description}\n`;
         });
         content += `\n`;
     }
@@ -275,7 +362,13 @@ function buildLlmsTxt(globalInfo, projects, studio, awards, faqList) {
     if (studio && studio.length > 0) {
         content += `## Studio Content & Publications\n`;
         studio.forEach(s => {
-            content += `- [${s.seoTitle || s.title} (${s.platform})](${s.url || 'https://itomdev.com'}): ${s.seoDescription || s.description || ''}\n`;
+            content += `- [${s.seoTitle || s.title} (${s.platform})](${s.url || SITE.origin}): ${s.seoDescription || s.description || ''}\n`;
+        });
+        content += `\n`;
+    } else {
+        content += `## Writing & Notes\n`;
+        LOCAL_NOTES.forEach(n => {
+            content += `- **${n.title}** (${n.date}): ${n.excerpt}\n`;
         });
         content += `\n`;
     }
@@ -285,10 +378,22 @@ function buildLlmsTxt(globalInfo, projects, studio, awards, faqList) {
         const categoryLabels = { sotd: 'Site of the Day', sotm: 'Site of the Month', other: 'Honorable Mention' };
         awards.forEach(a => {
             const category = categoryLabels[a.category] || a.category;
-            content += `- **${category}** — [${a.seoTitle || a.title}](${a.url || 'https://itomdev.com'}): Awarded on ${a.date || 'unknown'}. ${a.seoDescription || ''}\n`;
+            content += `- **${category}** — [${a.seoTitle || a.title}](${a.url || SITE.origin}): Awarded on ${a.date || 'unknown'}. ${a.seoDescription || ''}\n`;
         });
         content += `\n`;
     }
+
+    content += `## Contact\n`;
+    content += `- Portfolio: ${SITE.origin}\n`;
+    content += `- Link hub: https://kippoo.netlify.app/muhammadmoaiz\n`;
+    content += `- GitHub: https://github.com/codewithmoju\n`;
+    content += `- LinkedIn: https://www.linkedin.com/in/muhammadmoaiz\n`;
+    content += `- Instagram: https://instagram.com/codewithmoju\n`;
+    content += `- Facebook: https://facebook.com/profile.php?id=61575568985059\n`;
+    content += `- TikTok: https://tiktok.com/@codewithmoju\n`;
+    content += `- X (Twitter): https://twitter.com/M_Moaiz001\n`;
+    content += `- WhatsApp: https://wa.me/923019684007\n`;
+    content += `\n`;
 
     if (faqList && faqList.length > 0) {
         content += `## Frequently Asked Questions (FAQ)\n`;
@@ -304,20 +409,31 @@ function buildLlmsTxt(globalInfo, projects, studio, awards, faqList) {
 export function generateSeoHtml() {
     let cachedLlmsContent = '';
 
+    // Fetch SEO data from Sanity. When Sanity is not configured this resolves to
+    // all-null so the plugin falls back to the local, hardcoded Moaiz data
+    // instead of pulling content from another project's dataset.
+    async function fetchSanityData() {
+        if (!isSanityConfigured) {
+            return { globalInfo: null, projects: null, studio: null, awards: null, faqList: null };
+        }
+        const [globalInfo, projects, studio, awards, faqList] = await Promise.all([
+            sanityClient.fetch(`*[_id == "globalInfo"][0]`),
+            sanityClient.fetch(`*[_type == "galleryProject"]`),
+            sanityClient.fetch(`*[_type == "studioItem"] { ..., "thumbnailUrl": frontTexture.asset->url }`),
+            sanityClient.fetch(`*[_type == "awardCertificate"]`),
+            sanityClient.fetch(`*[_type == "faq"]`)
+        ]);
+        return { globalInfo, projects, studio, awards, faqList };
+    }
+
     async function getLlmsContent() {
         if (!cachedLlmsContent) {
             try {
-                const [globalInfo, projects, studio, awards, faqList] = await Promise.all([
-                    sanityClient.fetch(`*[_id == "globalInfo"][0]`),
-                    sanityClient.fetch(`*[_type == "galleryProject"]`),
-                    sanityClient.fetch(`*[_type == "studioItem"]`),
-                    sanityClient.fetch(`*[_type == "awardCertificate"]`),
-                    sanityClient.fetch(`*[_type == "faq"]`)
-                ]);
+                const { globalInfo, projects, studio, awards, faqList } = await fetchSanityData();
                 cachedLlmsContent = buildLlmsTxt(globalInfo, projects, studio, awards, faqList);
             } catch (e) {
                 console.error('SEO Plugin Error: Failed to fetch Sanity data for llms.txt', e);
-                cachedLlmsContent = `# Tomasz Szmajda\n> Creative Developer\n`;
+                cachedLlmsContent = buildLlmsTxt(null, null, null, null, null);
             }
         }
         return cachedLlmsContent;
@@ -342,19 +458,22 @@ export function generateSeoHtml() {
         // This hook runs when Vite generates or serves index.html
         async transformIndexHtml(html) {
             try {
-                // Fetch all data in parallel
-                const [globalInfo, projects, studio, awards, faqList] = await Promise.all([
-                    sanityClient.fetch(`*[_id == "globalInfo"][0]`),
-                    sanityClient.fetch(`*[_type == "galleryProject"]`),
-                    sanityClient.fetch(`*[_type == "studioItem"] { ..., "thumbnailUrl": frontTexture.asset->url }`),
-                    sanityClient.fetch(`*[_type == "awardCertificate"]`),
-                    sanityClient.fetch(`*[_type == "faq"]`)
-                ]);
+                const { globalInfo, projects, studio, awards, faqList } = await fetchSanityData();
+
+                // When Sanity is not configured, index.html already contains the
+                // real, hand-written SEO copy. Only inject structured data here so
+                // we never replace that copy with generic fallbacks.
+                if (!isSanityConfigured) {
+                    cachedLlmsContent = buildLlmsTxt(null, null, null, null, null);
+                    const localJsonLd = buildJsonLd(null, LOCAL_PROJECTS, null, null, null);
+                    const localJsonLdScript = `\n  <!-- Dynamic Structured Data (JSON-LD) — generated from local data at build time -->\n  <script type="application/ld+json">\n${JSON.stringify(localJsonLd, null, 2)}\n  </script>\n`;
+                    return html.replace('</head>', `${localJsonLdScript}</head>`);
+                }
 
                 // Fallback values if globalInfo is not yet created in Sanity
-                const siteTitle = globalInfo?.siteTitle || 'ITom - Creative Developer';
-                const siteDescription = globalInfo?.siteDescription || 'Interactive 3D portfolio of a creative web developer.';
-                const aboutMe = globalInfo?.aboutMe || 'I am a creative developer specializing in 3D web experiences.';
+                const siteTitle = globalInfo?.siteTitle || SITE.title;
+                const siteDescription = globalInfo?.siteDescription || SITE.description;
+                const aboutMe = globalInfo?.aboutMe || SITE.aboutMe;
 
                 // Cache llms.txt content for later bundle emission
                 cachedLlmsContent = buildLlmsTxt(globalInfo, projects, studio, awards, faqList);

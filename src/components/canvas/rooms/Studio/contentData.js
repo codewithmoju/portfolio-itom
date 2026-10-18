@@ -4,17 +4,15 @@
  * This file contains all content items for the Studio monitor tower.
  * Each item will be displayed on a monitor in the tower.
  * 
- * Platforms: 'youtube', 'blog', 'tiktok'
+ * Repurposed for Muhammad Moaiz: his writing (blog), his professional
+ * experience (career) and his education history (education).
+ * Platforms: 'blog', 'career', 'education'
  */
 
+const PORTFOLIO_URL = 'https://muhammadmoaiz.netlify.app/';
+const LINKEDIN_URL = 'https://www.linkedin.com/in/muhammadmoaiz';
+
 export const PLATFORM_CONFIG = {
-    youtube: {
-        color: '#FF0000',
-        accentColor: '#cc0000',
-        icon: '▶',
-        label: 'YouTube',
-        shape: 'tv', // Wide CRT style
-    },
     blog: {
         color: '#4A90D9',
         accentColor: '#2d6cb5',
@@ -22,382 +20,152 @@ export const PLATFORM_CONFIG = {
         label: 'Blog',
         shape: 'monitor', // Thin desktop monitor
     },
-    tiktok: {
-        color: '#00F2EA',
-        accentColor: '#FF0050',
-        icon: '🎵',
-        label: 'TikTok',
+    career: {
+        color: '#0A66C2',
+        accentColor: '#004182',
+        icon: '💼',
+        label: 'Career',
+        shape: 'tv', // Wide CRT style
+    },
+    education: {
+        color: '#7C4DFF',
+        accentColor: '#5E35B1',
+        icon: '🎓',
+        label: 'Education',
         shape: 'phone', // Vertical phone
-    },
-    instagram: {
-        color: '#E1306C',
-        accentColor: '#C13584',
-        icon: '📷',
-        label: 'Instagram',
-        shape: 'phone',
-    },
-    x: {
-        color: '#000000',
-        accentColor: '#14171A',
-        icon: '𝕏',
-        label: 'X (Twitter)',
-        shape: 'monitor',
-    },
-    linkedin: {
-        color: '#0077B5',
-        accentColor: '#005E93',
-        icon: 'in',
-        label: 'LinkedIn',
-        shape: 'monitor',
-    },
-    codrops: {
-        color: '#0099FF',
-        accentColor: '#0077CC',
-        icon: '💧',
-        label: 'Codrops',
-        shape: 'monitor',
     },
 };
 
-// Sample content data - replace with real content later
+// Real content — writing, career milestones and education from Muhammad Moaiz's verified data
 const RAW_CONTENT_DATA = [
-    // ============ YouTube Videos ============
-    {
-        id: 'yt-001',
-        platform: 'youtube',
-        title: 'I Built a Website for Young Multi for $__,___',
-        description: 'It\'s late 2025, we\'re flying to space, and Young Multi... still didn\'t have his own website. So I took matters into my own hands.',
-        frontTexture: '/textures/studio/tvfront_filmikprojektdlamultiego.webp',
-        paintedFrontTexture: '/textures/studio/tvfront_filmikprojektdlamultiego_painted.webp',
-        thumbnail: null,
-        url: 'https://www.youtube.com/watch?v=AOz4fB7NV_I&t=21s',
-        date: '2026-01-10',
-        views: '1.2K',
-        duration: '15:32',
-    },
-    {
-        id: 'yt-002',
-        platform: 'youtube',
-        title: 'Turning an ordinary selfie into a professional AI photoshoot! How Google Nano Banana transformed my photo! (For Free)',
-        description: '📸 Watch how I turned a basic selfie into a professional photoshoot using a free AI tool from Google! In this step-by-step tutorial, I reveal my secret trick for crafting perfect prompts, even if you\'re a total beginner.',
-        frontTexture: '/textures/studio/tvfront_filmikedytowaniezdjec.webp',
-        paintedFrontTexture: '/textures/studio/tvfront_filmikedytowaniezdjec_painted.webp',
-        thumbnail: null,
-        url: 'https://www.youtube.com/watch?v=WQTOD7uXHNY&t=10s',
-        date: '2025-10-11',
-        views: '121',
-        duration: '7:45',
-    },
-    {
-        id: 'yt-003',
-        platform: 'youtube',
-        title: 'React Three Fiber Crash Course',
-        description: 'Everything you need to know to get started with 3D in React.',
-        thumbnail: null,
-        url: 'https://www.youtube.com/@itompoland',
-        date: '2025-12-28',
-        views: '2.4K',
-        duration: '22:10',
-    },
-    {
-        id: 'yt-004',
-        platform: 'youtube',
-        title: 'Shaders for Beginners',
-        description: 'Introduction to GLSL shaders in WebGL and Three.js.',
-        thumbnail: null,
-        url: 'https://www.youtube.com/@itompoland',
-        date: '2025-12-15',
-        views: '1.8K',
-        duration: '18:33',
-    },
-    {
-        id: 'yt-005',
-        platform: 'youtube',
-        title: 'GSAP + Three.js Integration',
-        description: 'How to animate 3D objects with GSAP ScrollTrigger.',
-        thumbnail: null,
-        url: 'https://www.youtube.com/@itompoland',
-        date: '2025-12-01',
-        views: '3.1K',
-        duration: '20:15',
-    },
-    {
-        id: 'yt-006',
-        platform: 'youtube',
-        title: 'Building Interactive 3D Scenes',
-        description: 'Raycasting, hover effects, and click interactions in Three.js.',
-        thumbnail: null,
-        url: 'https://www.youtube.com/@itompoland',
-        date: '2025-11-20',
-        views: '2.8K',
-        duration: '25:00',
-    },
-    {
-        id: 'yt-007',
-        platform: 'youtube',
-        title: 'WebGL Performance Deep Dive',
-        description: 'Optimizing draw calls, geometry instancing, and more.',
-        thumbnail: null,
-        url: 'https://www.youtube.com/@itompoland',
-        date: '2025-11-10',
-        views: '1.5K',
-        duration: '30:22',
-    },
-    {
-        id: 'yt-008',
-        platform: 'youtube',
-        title: 'Procedural Textures Tutorial',
-        description: 'Creating textures with noise and math functions.',
-        thumbnail: null,
-        url: 'https://www.youtube.com/@itompoland',
-        date: '2025-10-28',
-        views: '1.9K',
-        duration: '18:45',
-    },
-
-    // ============ Blog Posts ============
+    // ============ Blog / Writing ============
     {
         id: 'blog-001',
         platform: 'blog',
-        title: 'Double Site of the Day confirmed! 🏆🏆',
-        description: 'You\'ve probably noticed I\'ve been sharing a bunch of SOTD certificates on my stories lately. Yes, it\'s true—the YOUNG MULTI project officially scored a "double" and got recognized on the international stage...',
+        title: 'Building Private SaaS Without Oversharing the System',
+        description: 'How I present serious product work publicly while protecting architecture, business logic, integrations, and client-sensitive workflows.',
         frontTexture: '/textures/studio/monitorfront_postnafbdoublewinner.webp',
         paintedFrontTexture: '/textures/studio/monitorfront_postnafbdoublewinner_painted.webp',
         thumbnail: null,
-        url: 'https://www.facebook.com/tomasz.szmajda.58/posts/pfbid0TmvbFrc9ASYBQHpv3fcz5gM9WZrgrLMzZFbbtSFySmzQNickLRNh6ubu388D7hHXl?rdid=nWrKXJXR8EqibqvZ',
-        date: '2026-01-08',
-        readTime: '5 min',
+        url: PORTFOLIO_URL,
+        date: 'Jun 27, 2026',
+        readTime: '7 min read',
+        tag: 'Product',
     },
     {
         id: 'blog-002',
         platform: 'blog',
-        title: 'The Hand-Drawn Aesthetic',
-        description: 'How I achieved a sketch-like visual style using shaders.',
+        title: 'Why React Native is Still My Go-To for Mobile Apps',
+        description: 'After shipping mobile apps across finance, education, parking, delivery, and utility categories, here is why React Native remains my default choice.',
         thumbnail: null,
-        url: 'https://www.facebook.com/tomasz.szmajda.58',
-        date: '2025-12-20',
-        readTime: '8 min',
+        url: PORTFOLIO_URL,
+        date: 'Jan 28, 2025',
+        readTime: '6 min read',
+        tag: 'Mobile',
     },
     {
         id: 'blog-003',
         platform: 'blog',
-        title: 'Optimizing 3D for the Web',
-        description: 'Performance tips for smooth 60fps 3D experiences.',
+        title: 'Co-Founding a Digital Agency at 18 — What Nobody Tells You',
+        description: 'The real lessons from building NAMS Studio: client management, scope creep, cash flow, and staying sane while shipping.',
         thumbnail: null,
-        url: 'https://www.facebook.com/tomasz.szmajda.58',
-        date: '2025-12-10',
-        readTime: '6 min',
-    },
-    {
-        id: 'blog-004',
-        platform: 'blog',
-        title: 'Creative Coding Journey',
-        description: 'My path from traditional dev to creative development.',
-        thumbnail: null,
-        url: 'https://www.facebook.com/tomasz.szmajda.58',
-        date: '2025-11-25',
-        readTime: '10 min',
-    },
-    {
-        id: 'blog-005',
-        platform: 'blog',
-        title: 'The Future of Web Experiences',
-        description: 'Where I think interactive web is heading.',
-        thumbnail: null,
-        url: 'https://www.facebook.com/tomasz.szmajda.58',
-        date: '2025-11-15',
-        readTime: '7 min',
-    },
-    {
-        id: 'blog-006',
-        platform: 'blog',
-        title: 'Design Systems for 3D',
-        description: 'Creating consistent 3D component libraries.',
-        thumbnail: null,
-        url: 'https://www.facebook.com/tomasz.szmajda.58',
-        date: '2025-11-01',
-        readTime: '12 min',
-    },
-    {
-        id: 'blog-007',
-        platform: 'blog',
-        title: 'Accessibility in 3D Web',
-        description: 'Making immersive experiences accessible to everyone.',
-        thumbnail: null,
-        url: 'https://www.facebook.com/tomasz.szmajda.58',
-        date: '2025-10-20',
-        readTime: '9 min',
-    },
-    {
-        id: 'blog-008',
-        platform: 'blog',
-        title: 'Audio in Web Experiences',
-        description: 'Adding spatial audio to enhance immersion.',
-        thumbnail: null,
-        url: 'https://www.facebook.com/tomasz.szmajda.58',
-        date: '2025-10-10',
-        readTime: '6 min',
+        url: PORTFOLIO_URL,
+        date: 'Nov 5, 2024',
+        readTime: '7 min read',
+        tag: 'Startup',
     },
 
-    // ============ TikToks ============
+    // ============ Career ============
     {
-        id: 'tt-001',
-        platform: 'tiktok',
-        title: 'Zaobserwuj mnie na TikToku! ✨',
-        description: 'Dzielę się tam wskazówkami z designu, kodowania i nie tylko.',
+        id: 'career-001',
+        platform: 'career',
+        title: 'React Native Developer — IT Intelligentsia',
+        description: 'Sep 2025 – Present · Lahore, Pakistan. Building and maintaining cross-platform mobile features in React Native & TypeScript for production apps, integrating REST APIs and third-party SDKs within a professional sprint-based team.',
+        frontTexture: '/textures/studio/tvfront_filmikprojektdlamultiego.webp',
+        paintedFrontTexture: '/textures/studio/tvfront_filmikprojektdlamultiego_painted.webp',
+        thumbnail: null,
+        url: LINKEDIN_URL,
+        date: 'Sep 2025',
+        location: 'Lahore, Pakistan',
+    },
+    {
+        id: 'career-002',
+        platform: 'career',
+        title: 'Co-Founder & Full-Stack Developer — NAMS STUDIO',
+        description: 'Apr 2023 – Present · Lahore, Pakistan. Co-founded a digital agency delivering web, mobile, SaaS and automation products, managing client relationships end-to-end from requirements and UI/UX through development and deployment.',
+        thumbnail: null,
+        url: 'https://www.namsstudio.com',
+        date: 'Apr 2023',
+        location: 'Lahore, Pakistan',
+    },
+    {
+        id: 'career-003',
+        platform: 'career',
+        title: 'Software Engineer Intern — DevelopersHub Corporation',
+        description: 'Nov 2024 – Jan 2025 · Islamabad, Pakistan. Completed a structured 3-month internship in mobile application development, shipping React Native UI components through PR approval and gaining hands-on Git and code-review experience.',
+        thumbnail: null,
+        url: LINKEDIN_URL,
+        date: 'Nov 2024',
+        location: 'Islamabad, Pakistan',
+    },
+
+    // ============ Education ============
+    {
+        id: 'edu-001',
+        platform: 'education',
+        title: "Bachelor's in Computer Software Engineering — Minhaj University Lahore",
+        description: 'Oct 2024 – Oct 2028 · Ongoing. Senior President of the Seekers Tech & Computing Society.',
         frontTexture: '/textures/studio/phonefront_followmeontiktok.webp',
         paintedFrontTexture: '/textures/studio/phonefront_followmeontiktok_painted.webp',
         thumbnail: null,
-        url: 'https://www.tiktok.com/@itompoland',
-        date: '2026-01-09',
-        views: '15.2K',
-        likes: '1.2K',
+        url: LINKEDIN_URL,
+        date: 'Oct 2024',
+        status: 'Ongoing',
     },
     {
-        id: 'tt-002',
-        platform: 'tiktok',
-        title: 'Coding a door animation 🚪',
-        description: 'POV: You open a door in Three.js',
+        id: 'edu-002',
+        platform: 'education',
+        title: 'Intermediate in Computer Science — Aims Group of Colleges',
+        description: '2022 – 2024 · Completed.',
         thumbnail: null,
-        url: 'https://www.tiktok.com/@itompoland',
-        date: '2026-01-03',
-        views: '8.5K',
-        likes: '756',
+        url: LINKEDIN_URL,
+        date: '2022',
+        status: 'Completed',
     },
     {
-        id: 'tt-003',
-        platform: 'tiktok',
-        title: 'When the shader finally works 🎉',
-        description: 'The satisfaction of debugging shaders',
+        id: 'edu-003',
+        platform: 'education',
+        title: 'Matriculation — Govt. School Shorkot Cantt',
+        description: 'Completed.',
         thumbnail: null,
-        url: 'https://www.tiktok.com/@itompoland',
-        date: '2025-12-25',
-        views: '22.1K',
-        likes: '3.4K',
-    },
-    {
-        id: 'tt-004',
-        platform: 'tiktok',
-        title: 'Day in the life: WebGL Dev',
-        description: 'What I do as a creative developer',
-        thumbnail: null,
-        url: 'https://www.tiktok.com/@itompoland',
-        date: '2025-12-18',
-        views: '12.3K',
-        likes: '1.1K',
-    },
-    {
-        id: 'tt-005',
-        platform: 'tiktok',
-        title: 'React vs Three.js POV 😅',
-        description: 'The struggle is real',
-        thumbnail: null,
-        url: 'https://www.tiktok.com/@itompoland',
-        date: '2025-12-12',
-        views: '45.2K',
-        likes: '5.8K',
-    },
-    {
-        id: 'tt-006',
-        platform: 'tiktok',
-        title: 'Making a 3D button 🔘',
-        description: '30 seconds of pure satisfaction',
-        thumbnail: null,
-        url: 'https://www.tiktok.com/@itompoland',
-        date: '2025-12-05',
-        views: '18.7K',
-        likes: '2.1K',
-    },
-    {
-        id: 'tt-007',
-        platform: 'tiktok',
-        title: 'This shader took 3 hours 💀',
-        description: 'Was it worth it? Absolutely.',
-        thumbnail: null,
-        url: 'https://www.tiktok.com/@itompoland',
-        date: '2025-11-28',
-        views: '33.4K',
-        likes: '4.2K',
-    },
-    {
-        id: 'tt-008',
-        platform: 'tiktok',
-        title: 'Hover effects compilation ✨',
-        description: 'My favorite micro-interactions',
-        thumbnail: null,
-        url: 'https://www.tiktok.com/@itompoland',
-        date: '2025-11-20',
-        views: '28.9K',
-        likes: '3.6K',
-    },
-    {
-        id: 'tt-009',
-        platform: 'tiktok',
-        title: 'Loading screen ideas 🔄',
-        description: 'Creative preloader concepts',
-        thumbnail: null,
-        url: 'https://www.tiktok.com/@itompoland',
-        date: '2025-11-15',
-        views: '19.3K',
-        likes: '2.4K',
-    },
-    {
-        id: 'tt-010',
-        platform: 'tiktok',
-        title: 'Cursor goes brrr 🖱️',
-        description: 'Custom cursor madness',
-        thumbnail: null,
-        url: 'https://www.tiktok.com/@itompoland',
-        date: '2025-11-08',
-        views: '41.2K',
-        likes: '5.1K',
-    },
-    {
-        id: 'tt-011',
-        platform: 'tiktok',
-        title: 'Parallax scrolling magic 🪄',
-        description: 'Simple but effective',
-        thumbnail: null,
-        url: 'https://www.tiktok.com/@itompoland',
-        date: '2025-11-01',
-        views: '25.6K',
-        likes: '3.0K',
-    },
-    {
-        id: 'tt-012',
-        platform: 'tiktok',
-        title: 'Text animation inspo 📝',
-        description: 'Typography that moves',
-        thumbnail: null,
-        url: 'https://www.tiktok.com/@itompoland',
-        date: '2025-10-25',
-        views: '31.8K',
-        likes: '4.0K',
+        url: LINKEDIN_URL,
+        date: 'Completed',
+        status: 'Completed',
     },
 ];
 
-const ytTextures = ['/textures/studio/tvfront_filmikprojektdlamultiego.webp', '/textures/studio/tvfront_filmikedytowaniezdjec.webp'];
-const ytPaintedTextures = ['/textures/studio/tvfront_filmikprojektdlamultiego_painted.webp', '/textures/studio/tvfront_filmikedytowaniezdjec_painted.webp'];
+const careerTextures = ['/textures/studio/tvfront_filmikprojektdlamultiego.webp'];
+const careerPaintedTextures = ['/textures/studio/tvfront_filmikprojektdlamultiego_painted.webp'];
 const blogTextures = ['/textures/studio/monitorfront_postnafbdoublewinner.webp'];
 const blogPaintedTextures = ['/textures/studio/monitorfront_postnafbdoublewinner_painted.webp'];
-const ttTextures = ['/textures/studio/phonefront_followmeontiktok.webp'];
-const ttPaintedTextures = ['/textures/studio/phonefront_followmeontiktok_painted.webp'];
+const eduTextures = ['/textures/studio/phonefront_followmeontiktok.webp'];
+const eduPaintedTextures = ['/textures/studio/phonefront_followmeontiktok_painted.webp'];
 
-let ytIdx = 0, blogIdx = 0, ttIdx = 0;
-let ytPIdx = 0, blogPIdx = 0, ttPIdx = 0;
+let careerIdx = 0, blogIdx = 0, eduIdx = 0;
+let careerPIdx = 0, blogPIdx = 0, eduPIdx = 0;
 
 export const CONTENT_DATA = RAW_CONTENT_DATA.map((item) => {
     return {
         ...item,
         frontTexture: item.frontTexture || (
-            item.platform === 'youtube' ? ytTextures[ytIdx++ % ytTextures.length] :
+            item.platform === 'career' ? careerTextures[careerIdx++ % careerTextures.length] :
                 item.platform === 'blog' ? blogTextures[blogIdx++ % blogTextures.length] :
-                    ttTextures[ttIdx++ % ttTextures.length]
+                    eduTextures[eduIdx++ % eduTextures.length]
         ),
         paintedFrontTexture: item.paintedFrontTexture || (
-            item.platform === 'youtube' ? ytPaintedTextures[ytPIdx++ % ytPaintedTextures.length] :
+            item.platform === 'career' ? careerPaintedTextures[careerPIdx++ % careerPaintedTextures.length] :
                 item.platform === 'blog' ? blogPaintedTextures[blogPIdx++ % blogPaintedTextures.length] :
-                    ttPaintedTextures[ttPIdx++ % ttPaintedTextures.length]
+                    eduPaintedTextures[eduPIdx++ % eduPaintedTextures.length]
         )
     };
 });
@@ -410,5 +178,9 @@ export const getContentByPlatform = (platform) => {
 
 // Get latest content (for "On Air" indicator)
 export const getLatestContent = () => {
-    return [...CONTENT_DATA].sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+    const toTime = (value) => {
+        const parsed = Date.parse(value);
+        return Number.isNaN(parsed) ? -Infinity : parsed;
+    };
+    return [...CONTENT_DATA].sort((a, b) => toTime(b.date) - toTime(a.date))[0];
 };
