@@ -74,15 +74,10 @@ const LOCAL_NOTES = [
 // Tech stack filename -> human-readable name mapping for JSON-LD
 const TECH_STACK_NAMES = {
     'reactlogo.webp': 'React',
-    'htmllogo.webp': 'HTML',
     'csslogo.webp': 'CSS',
     'jslogo.webp': 'JavaScript',
     'tailwindlogo.webp': 'Tailwind CSS',
     'firebaselogo.webp': 'Firebase',
-    'netlifylogo.webp': 'Netlify',
-    'wordpresslogo.webp': 'WordPress',
-    'elementorlogo.webp': 'Elementor',
-    'phplogo.webp': 'PHP',
 };
 
 /**
@@ -225,7 +220,7 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
                     url: s.url || undefined,
                     contentUrl: s.url || undefined,
                     ...(embedUrl ? { embedUrl } : {}),
-                    thumbnailUrl: s.thumbnailUrl || 'https://codewithmoju.netlify.app/og-image.webp',
+                    thumbnailUrl: s.thumbnailUrl || 'https://codewithmoju.netlify.app/og-image.jpg',
                     ...(s.duration ? { duration: `PT${s.duration.replace(':', 'M')}S` } : {}),
                     ...(s.date ? { uploadDate: formatIsoDate(s.date) } : {}),
                     ...(s.views ? { interactionStatistic: { '@type': 'InteractionCounter', interactionType: 'https://schema.org/WatchAction', userInteractionCount: s.views } } : {}),
@@ -238,7 +233,7 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
                     headline: s.seoTitle || s.title,
                     description: s.seoDescription || s.description || '',
                     url: s.url || undefined,
-                    image: s.thumbnailUrl || 'https://codewithmoju.netlify.app/og-image.webp',
+                    image: s.thumbnailUrl || 'https://codewithmoju.netlify.app/og-image.jpg',
                     ...(s.date ? { datePublished: formatIsoDate(s.date) } : {}),
                     ...(s.readTime ? { timeRequired: `PT${s.readTime.replace(' min', '')}M` } : {}),
                     author: { '@id': 'https://codewithmoju.netlify.app/#person' },
@@ -251,7 +246,7 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
                     description: s.seoDescription || s.description || '',
                     url: s.url || undefined,
                     contentUrl: s.url || undefined,
-                    thumbnailUrl: s.thumbnailUrl || 'https://codewithmoju.netlify.app/og-image.webp',
+                    thumbnailUrl: s.thumbnailUrl || 'https://codewithmoju.netlify.app/og-image.jpg',
                     ...(s.date ? { uploadDate: formatIsoDate(s.date) } : {}),
                     ...(s.views ? { interactionStatistic: { '@type': 'InteractionCounter', interactionType: 'https://schema.org/WatchAction', userInteractionCount: s.views } } : {}),
                     ...(s.likes ? { aggregateRating: { '@type': 'AggregateRating', ratingCount: s.likes } } : {}),
@@ -264,7 +259,7 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
                     headline: s.seoTitle || s.title,
                     description: s.seoDescription || s.description || '',
                     url: s.url || undefined,
-                    image: s.thumbnailUrl || 'https://codewithmoju.netlify.app/og-image.webp',
+                    image: s.thumbnailUrl || 'https://codewithmoju.netlify.app/og-image.jpg',
                     ...(s.date ? { datePublished: formatIsoDate(s.date) } : {}),
                     ...(s.likes ? { interactionStatistic: { '@type': 'InteractionCounter', interactionType: 'https://schema.org/LikeAction', userInteractionCount: s.likes } } : {}),
                     author: { '@id': 'https://codewithmoju.netlify.app/#person' },
@@ -276,7 +271,7 @@ function buildJsonLd(globalInfo, projects, studio, awards, faqList) {
                     headline: s.seoTitle || s.title,
                     description: s.seoDescription || s.description || '',
                     url: s.url || undefined,
-                    image: s.thumbnailUrl || 'https://codewithmoju.netlify.app/og-image.webp',
+                    image: s.thumbnailUrl || 'https://codewithmoju.netlify.app/og-image.jpg',
                     ...(s.date ? { datePublished: formatIsoDate(s.date) } : {}),
                     author: { '@id': 'https://codewithmoju.netlify.app/#person' },
                 });

@@ -37,7 +37,7 @@ export const GALLERY_INTERACTION_AUDIO_SETTINGS = {
 // Card front images live in /public/textures/gallery and were copied from the
 // Myportfolio repo (see the data-replacement commit). Private-SaaS projects
 // intentionally declare no tech-stack logos because their stack is protected.
-const FALLBACK_PROJECTS = [
+export const FALLBACK_PROJECTS = [
     {
         id: 'routeradiant',
         title: 'ROUTERADIANT',
@@ -126,9 +126,17 @@ const FALLBACK_PROJECTS = [
         description: 'Protected Pakistani filing SaaS with guided user workflows. The public version explains only the product category and user-facing value; source, stack and business logic remain private.',
         techStack: []
     },
+    {
+        id: 'edumateai',
+        title: 'EDUMATE AI',
+        front: '/textures/gallery/edumateai.png',
+        url: 'https://github.com/codewithmoju/EduMate_AI',
+        description: 'React Native AI education app that turns a topic into structured study material — course paths, chapters, examples, quizzes, flashcards, Q&A and progress flows, backed by Firebase.',
+        techStack: ['/textures/gallery/reactlogo.webp', '/textures/gallery/firebaselogo.webp', '/textures/gallery/jslogo.webp']
+    },
 ];
 
-const PROJECT_COUNT = 11; // One card per real project
+const PROJECT_COUNT = 12; // One card per real project
 const GAP = 2.5;
 
 // Zmień te wartości aby dopasować proporcje ptaka (legacy ratio 1.41)
@@ -290,9 +298,8 @@ const GalleryRoom = ({ showRoom, onReady, isExiting, isWarmup }) => {
     // We use the same conditional logic: painted on desktop, regular on touch
     const allLogos = useMemo(() => {
         const names = [
-            'csslogo', 'elementorlogo', 'firebaselogo', 'htmllogo',
-            'jslogo', 'netlifylogo', 'phplogo', 'reactlogo',
-            'tailwindlogo', 'wordpresslogo'
+            'csslogo', 'firebaselogo', 'jslogo',
+            'reactlogo', 'tailwindlogo'
         ];
         return names.map(name => {
             if (!canHover) return `/textures/gallery/${name}.webp`;

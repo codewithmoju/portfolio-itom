@@ -1,5 +1,8 @@
 import { useScene } from '../../context/SceneContext';
 import { useGalleryProjects, useStudioContent, useAwards } from '../../hooks/useSanityData';
+import { FALLBACK_PROJECTS } from '../canvas/rooms/Gallery/GalleryRoom';
+import { CONTENT_DATA } from '../canvas/rooms/Studio/contentData';
+import { AWARDS_DATA } from '../canvas/rooms/About/InfiniteSkyManager';
 import '../../styles/ScreenReaderOverlay.scss';
 
 /**
@@ -12,10 +15,16 @@ import '../../styles/ScreenReaderOverlay.scss';
 const ScreenReaderOverlay = () => {
     const { hasEntered, isInRoom, currentRoom, teleportTo, requestExit } = useScene();
     
-    // Pobieranie danych do wygenerowania niewidocznego HTML-a dla SEO / robotów
-    const projects = useGalleryProjects();
-    const studio = useStudioContent();
-    const awards = useAwards();
+    // Pobieranie danych do wygenerowania niewidocznego HTML-a dla SEO / robotów.
+    // Gdy CMS jest wyłączony, hooki zwracają null — wtedy korzystamy z lokalnych
+    // danych, żeby treść pozostała dostępna dla czytników ekranu i robotów.
+    const sanityProjects = useGalleryProjects();
+    const sanityStudio = useStudioContent();
+    const sanityAwards = useAwards();
+
+    const projects = sanityProjects || FALLBACK_PROJECTS;
+    const studio = sanityStudio || CONTENT_DATA;
+    const awards = sanityAwards || AWARDS_DATA;
 
     return (
         <div className="sr-overlay" role="complementary" aria-label="Accessible navigation for 3D portfolio">

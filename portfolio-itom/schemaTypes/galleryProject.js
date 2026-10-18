@@ -59,17 +59,13 @@ export default {
       type: 'array',
       of: [{ type: 'string' }],
       options: {
+        // Only logos that actually ship in public/textures/gallery.
         list: [
           { title: 'React', value: 'reactlogo.webp' },
-          { title: 'HTML', value: 'htmllogo.webp' },
           { title: 'CSS', value: 'csslogo.webp' },
           { title: 'JavaScript', value: 'jslogo.webp' },
           { title: 'Tailwind CSS', value: 'tailwindlogo.webp' },
           { title: 'Firebase', value: 'firebaselogo.webp' },
-          { title: 'Netlify', value: 'netlifylogo.webp' },
-          { title: 'WordPress', value: 'wordpresslogo.webp' },
-          { title: 'Elementor', value: 'elementorlogo.webp' },
-          { title: 'PHP', value: 'phplogo.webp' },
         ],
         layout: 'grid',
       },

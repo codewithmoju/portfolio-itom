@@ -147,23 +147,19 @@ export const GALLERY_PROJECT_IMAGES = [
     '/textures/gallery/budgeto.png',
     '/textures/gallery/skycast.jpeg',
     '/textures/gallery/spotspace.png',
+    '/textures/gallery/edumateai.png',
 ];
 
 export const GALLERY_TEXTURES_VERSIONED = [
     // Card back
     'tylkartki',
     'przyciskdotylukartki',
-    // Tech stack logos
+    // Tech stack logos (only the ones referenced by real project data)
     'csslogo',
-    'elementorlogo',
     'firebaselogo',
-    'htmllogo',
     'jslogo',
-    'netlifylogo',
-    'phplogo',
     'reactlogo',
     'tailwindlogo',
-    'wordpresslogo',
 ];
 
 export const GALLERY_TEXTURES = [

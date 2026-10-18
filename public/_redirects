@@ -1,9 +1,9 @@
-# Ten plik służy tylko do wewnętrznych przekierowań ścieżek np:
-# /stara-strona /nowa-strona 301
-# Przekierowania z www na non-www ustawiamy bezpośrednio w zakładce "Rules -> Redirect Rules" w panelu głównym domeny w Cloudflare.
-
-# Lekka, statyczna strona startowa. Reguły dokładne muszą być przed trasami SPA.
+# Netlify redirects. Exact rules must come before the SPA catch-all.
+# Lightweight static landing page.
 /start  /start/index.html  200
 /start/ /start/index.html  200
 
-# Pozostałe ścieżki (/gallery, /about itd.) obsługuje automatyczny fallback SPA Cloudflare Pages.
+# The app is a single-page WebGL experience that uses the History API for its
+# virtual room routes (/about, /gallery, /studio, /contact). Netlify does not
+# rewrite unknown paths by itself, so serve index.html for everything else.
+/*  /index.html  200

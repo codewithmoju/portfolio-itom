@@ -1,33 +1,30 @@
-https://portfolio-itom.pages.dev/*
-  X-Robots-Tag: noindex
-
-https://codewithmoju.netlify.app/*
+# Netlify headers. Paths here are Netlify-style patterns (no origin/URL prefix).
+/*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 
-# Cache static assets for 1 year (Performance & SEO Server Score)
-https://codewithmoju.netlify.app/*.js
+# Vite fingerprints filenames inside /assets, so these are safe to pin for a year.
+/assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-https://codewithmoju.netlify.app/*.css
+/fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
-https://codewithmoju.netlify.app/*.webp
-  Cache-Control: public, max-age=31536000, immutable
+# Everything under public/ keeps a stable filename. Caching it for a year would
+# keep serving replaced artwork out of the browser cache, so revalidate daily.
+/textures/*
+  Cache-Control: public, max-age=86400
 
-https://codewithmoju.netlify.app/*.png
-  Cache-Control: public, max-age=31536000, immutable
+/images/*
+  Cache-Control: public, max-age=86400
 
-https://codewithmoju.netlify.app/*.ktx2
-  Cache-Control: public, max-age=31536000, immutable
+/cursors/*
+  Cache-Control: public, max-age=86400
 
-https://codewithmoju.netlify.app/*.glb
-  Cache-Control: public, max-age=31536000, immutable
+/sounds/*
+  Cache-Control: public, max-age=86400
 
-https://codewithmoju.netlify.app/*.mp3
-  Cache-Control: public, max-age=31536000, immutable
-
-https://codewithmoju.netlify.app/fonts/*
-  Cache-Control: public, max-age=31536000, immutable
+/videos/*
+  Cache-Control: public, max-age=86400

@@ -2,7 +2,8 @@ import {defineCliConfig} from 'sanity/cli'
 
 export default defineCliConfig({
   api: {
-    projectId: 'kv5wjjmj',
+    // Placeholder on purpose — see sanity.config.js
+    projectId: 'placeholder',
     dataset: 'production'
   },
   deployment: {

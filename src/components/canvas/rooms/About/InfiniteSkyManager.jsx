@@ -416,7 +416,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
  */
 const LINKEDIN_URL = 'https://www.linkedin.com/in/muhammadmoaiz';
 
-const AWARDS_DATA = {
+export const AWARDS_DATA = {
     sotd: {
         id: 'award-sotd',
         layout: 'certificate_grid',
