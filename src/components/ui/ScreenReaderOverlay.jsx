@@ -26,11 +26,11 @@ const ScreenReaderOverlay = () => {
 
             {/* Main accessible navigation */}
             <nav id="sr-main-nav" className="sr-only" aria-label="Portfolio rooms">
-                <h1>ITom — Creative Developer Portfolio</h1>
+                <h1>Muhammad Moaiz — Full-Stack Mobile Developer Portfolio</h1>
                 <h2>Portfolio Navigation</h2>
 
                 {!hasEntered && (
-                    <p>Welcome to ITom's interactive 3D portfolio. Click or press Enter on the doors to enter.</p>
+                    <p>Welcome to Muhammad Moaiz's interactive 3D portfolio. Click or press Enter on the doors to enter.</p>
                 )}
 
                 {hasEntered && !isInRoom && (
@@ -54,7 +54,7 @@ const ScreenReaderOverlay = () => {
                             </li>
                             <li>
                                 <button onClick={() => teleportTo('studio')} type="button">
-                                    The Studio — Technologies and experience
+                                    The Studio — Notes, experience and education
                                 </button>
                             </li>
                         </ul>
@@ -77,11 +77,11 @@ const ScreenReaderOverlay = () => {
                         {currentRoom === 'about' && (
                             <div aria-label="About room content">
                                 <h3>About Me</h3>
-                                <p>This room contains my personal story, awards, journey milestones, and technology skills displayed as interactive balloons.</p>
+                                <p>This room contains my personal story, career and education milestones, and technology skills displayed as interactive balloons.</p>
                                 
                                 {awards && (
                                     <section>
-                                        <h4>My Awards</h4>
+                                        <h4>My Credentials</h4>
                                         <ul>
                                             {awards.sotd && awards.sotd.items && awards.sotd.items.map((a, i) => (
                                                 <li key={i}>{a.label} - {a.date} {a.url && <a href={a.url}>View</a>}</li>
@@ -124,7 +124,7 @@ const ScreenReaderOverlay = () => {
                         {currentRoom === 'studio' && (
                             <div aria-label="Studio room content">
                                 <h3>The Studio</h3>
-                                <p>Explore my experience and skills on rotating monitors. Click a monitor to read detailed information about my work.</p>
+                                <p>Explore my writing, experience and education on rotating monitors. Click a monitor to read detailed information about my work.</p>
 
                                 {studio && studio.length > 0 && (
                                     <ul>

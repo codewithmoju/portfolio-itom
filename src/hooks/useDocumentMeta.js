@@ -9,31 +9,34 @@ import { useScene } from '../context/SceneContext';
  * browser back/forward buttons for seamless navigation.
  */
 
+// Public site origin used for canonical/OG URLs
+const SITE_ORIGIN = 'https://codewithmoju.netlify.app';
+
 const ROOM_META = {
     null: {
         path: '/',
-        title: 'ITom — Creative 3D Portfolio',
-        description: 'Interactive 3D developer portfolio by Tomasz "ITom" Szmajda. Explore WebGL experiments, React projects & GSAP animations in a hand-drawn gallery.',
+        title: 'Muhammad Moaiz — Full-Stack Mobile Developer',
+        description: 'Interactive 3D portfolio of Muhammad Moaiz (codewithmoju) — Full-Stack Mobile Developer working with React Native, Next.js and Three.js. Explore mobile apps & SaaS products in a hand-drawn gallery.',
     },
     about: {
         path: '/about',
-        title: 'About Me — ITom Portfolio',
-        description: 'Learn about Tomasz "ITom" Szmajda — a creative frontend developer specializing in 3D web experiences, React, Three.js, and GSAP animations.',
+        title: 'About Me — Muhammad Moaiz',
+        description: 'Get to know Muhammad Moaiz — Full-Stack Mobile Developer, Co-Founder of NAMS Studio, and BSSE student at Minhaj University Lahore. My story, journey, and skills.',
     },
     gallery: {
         path: '/gallery',
-        title: 'Gallery & Projects — ITom Portfolio',
-        description: 'Browse the interactive 3D gallery of web development projects by ITom. Each project is displayed as a hand-drawn card you can flip and explore.',
+        title: 'Gallery & Projects — Muhammad Moaiz',
+        description: 'Browse the interactive 3D gallery of projects by Muhammad Moaiz — private SaaS products, React Native mobile apps, and premium web storefronts, each shown as a hand-drawn card.',
     },
     studio: {
         path: '/studio',
-        title: 'The Studio — ITom Portfolio',
-        description: 'Explore ITom\'s content studio — YouTube videos, blog posts, and TikToks displayed on floating monitors in an immersive 3D space.',
+        title: 'The Studio — Muhammad Moaiz',
+        description: 'Explore the content studio of Muhammad Moaiz — notes on building private SaaS, React Native development, and co-founding a digital agency, displayed on floating monitors in 3D.',
     },
     contact: {
         path: '/contact',
-        title: 'Contact — ITom Portfolio',
-        description: 'Get in touch with Tomasz "ITom" Szmajda. Find social media links and contact information in this interactive 3D contact room.',
+        title: 'Contact — Muhammad Moaiz',
+        description: 'Get in touch with Muhammad Moaiz — Full-Stack Mobile Developer based in Lahore, Pakistan. Find social links and contact information in this interactive 3D contact room.',
     },
 };
 
@@ -82,12 +85,12 @@ export function useDocumentMeta() {
         if (ogDesc) ogDesc.setAttribute('content', meta.description);
 
         const ogUrl = document.querySelector('meta[property="og:url"]');
-        if (ogUrl) ogUrl.setAttribute('content', `https://itomdev.com${meta.path}`);
+        if (ogUrl) ogUrl.setAttribute('content', `${SITE_ORIGIN}${meta.path}`);
 
         // Update canonical link to ensure virtual routes are correctly indexable as separate pages
         const canonicalTag = document.querySelector('link[rel="canonical"]');
         if (canonicalTag) {
-            canonicalTag.setAttribute('href', `https://itomdev.com${meta.path}`);
+            canonicalTag.setAttribute('href', `${SITE_ORIGIN}${meta.path}`);
         }
 
         // Push to browser history (only if not handling a popstate event and room actually changed)

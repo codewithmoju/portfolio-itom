@@ -352,7 +352,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 anchorY="middle"
                 font="/fonts/RubikScribble-Regular.ttf"
             >
-                TOMASZ SZMAJDA
+                MUHAMMAD MOAIZ
             </Text>
 
             {/* Subtitle - Brand (spreads right) */}
@@ -365,7 +365,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 anchorY="middle"
                 font="/fonts/CabinSketch-Regular.ttf"
             >
-                (ITOM)
+                (CODEWITHMOJU)
             </Text>
 
             {/* Avatar on cloud - floating + spreads up-left */}
@@ -390,7 +390,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 font="/fonts/CabinSketch-Regular.ttf"
                 fontStyle="italic"
             >
-                "Crafting digital experiences
+                "Building mobile apps & SaaS
             </Text>
 
             {/* Motto - Line 2 (spreads left) */}
@@ -404,68 +404,63 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 font="/fonts/CabinSketch-Regular.ttf"
                 fontStyle="italic"
             >
-                that push creative boundaries"
+                that solve real problems"
             </Text>
         </group>
     );
 };
 
 /**
- * MOCK DATA FOR AWARDS
+ * CAREER / EDUCATION / HIGHLIGHTS DATA
+ * (Milestone previously used for awards — repurposed for Muhammad Moaiz's real credentials)
  */
+const LINKEDIN_URL = 'https://www.linkedin.com/in/muhammadmoaiz';
+
 const AWARDS_DATA = {
-    featured: {
-        id: 'award-featured',
-        layout: 'certificate_grid',
-        title: 'Featured Projects Collection',
-        items: [
-            { label: 'Featured - Awwwards', date: 'May 2025', image: '/textures/about/FEATURED.webp', url: 'https://awwwards.com' },
-            { label: 'Featured - CSS Design Awards', date: 'June 2025', image: '/textures/about/FEATURED.webp', url: 'https://cssdesignawards.com' },
-            { label: 'Featured - The FWA', date: 'July 2025', image: '/textures/about/FEATURED.webp', url: 'https://thefwa.com' },
-            { label: 'Featured - Behance', date: 'August 2025', image: '/textures/about/FEATURED.webp', url: 'https://behance.net' },
-        ],
-        platformConfig: {
-            label: 'HONOR',
-            color: '#1a1a1a',
-            icon: '⭐'
-        }
-    },
     sotd: {
         id: 'award-sotd',
         layout: 'certificate_grid',
-        title: 'Site of the Day Awards',
+        title: 'Professional Experience',
         items: [
-            { label: 'SOTD - GSAP', date: 'February 13, 2026', image: '/textures/about/SOTDAYYOUNGMULTIGSAP.webp', url: 'https://www.linkedin.com/posts/greensock_site-of-the-day-young-multi-this-immersive-activity-7427567524940017664-zU2n?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE3TV6UBqXoaJXUN5-1s3ij6SQJwTRAcbCM' },
-            { label: 'SOTD - CSS Winner', date: 'January 24, 2026', image: '/textures/about/SOTDAYYOUNGMULTICSSWINNER.webp', url: 'https://www.csswinner.com/details/young-multi-official-experience/19045' },
-            { label: 'SOTD - Orpetron', date: 'January 29, 2026', image: '/textures/about/SOTDAYYOUNGMULTIORPETRON.webp', url: 'https://orpetron.com/sites/young-multi/' },
-            { label: 'SOTD - Design Nominess', date: 'February 17, 2026', image: '/textures/about/SOTDAYYOUNGMULTIDESIGNNOMINESS.webp', url: 'https://www.designnominees.com/sites/young-multi' }
+            { label: 'IT Intelligentsia — React Native Developer', date: 'Sep 2025 – Present', image: null, url: LINKEDIN_URL },
+            { label: 'NAMS STUDIO — Co-Founder & Full-Stack Developer', date: 'Apr 2023 – Present', image: null, url: 'https://www.namsstudio.com' },
+            { label: 'DevelopersHub Corporation — Software Engineer Intern', date: 'Nov 2024 – Jan 2025', image: null, url: LINKEDIN_URL }
         ],
         platformConfig: {
-            label: 'AWARD',
+            label: 'CAREER',
             color: '#1a1a1a',
-            icon: '🏆'
+            icon: '💼'
         }
     },
     sotm: {
         id: 'award-sotm',
         layout: 'certificate_grid',
-        title: 'Site of the Month Awards',
-        items: [],
+        title: 'Education',
+        items: [
+            { label: 'Minhaj University Lahore — BSSE, Computer Software Engineering', date: 'Oct 2024 – Oct 2028', image: null, url: LINKEDIN_URL },
+            { label: 'Aims Group of Colleges — Intermediate, Computer Science', date: '2022 – 2024', image: null, url: LINKEDIN_URL },
+            { label: 'Govt. School Shorkot Cantt — Matriculation', date: 'Completed', image: null, url: LINKEDIN_URL }
+        ],
         platformConfig: {
-            label: 'AWARD',
+            label: 'EDUCATION',
             color: '#1a1a1a',
-            icon: '📅'
+            icon: '🎓'
         }
     },
     other: {
         id: 'award-other',
         layout: 'certificate_grid',
-        title: 'Other Awards',
-        items: [],
+        title: 'Highlights',
+        items: [
+            { label: 'Age first app shipped', date: '16', image: null, url: 'https://codewithmoju.netlify.app/' },
+            { label: 'Years building products', date: '3+', image: null, url: 'https://codewithmoju.netlify.app/' },
+            { label: 'Portfolio-grade builds', date: '12+', image: null, url: 'https://codewithmoju.netlify.app/' },
+            { label: 'Live or shipped products', date: '5+', image: null, url: 'https://codewithmoju.netlify.app/' }
+        ],
         platformConfig: {
-            label: 'PRESTIGE',
+            label: 'HIGHLIGHTS',
             color: '#1a1a1a',
-            icon: '👑'
+            icon: '⭐'
         }
     }
 };
@@ -624,7 +619,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 anchorY="middle"
                 font="/fonts/RubikScribble-Regular.ttf"
             >
-                AWARDS
+                EXPERIENCE
             </Text>
 
             {/* === SOTD (behind SOTY, rendered second) === */}
@@ -673,7 +668,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
                 >
-                    SOTD
+                    CAREER
                 </Text>
                 {/* AWARD COUNT */}
                 <Text
@@ -734,7 +729,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
                 >
-                    SOTM
+                    STUDY
                 </Text>
                 {/* AWARD COUNT */}
                 <Text
@@ -794,7 +789,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
                 >
-                    OTHER
+                    STATS
                 </Text>
                 {/* AWARD COUNT */}
                 <Text
@@ -915,10 +910,10 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                 anchorY="middle"
                 font="/fonts/CabinSketch-Regular.ttf"
             >
-                My path so far...
+                Mobile apps, SaaS & agency work since 2023
             </Text>
 
-            {/* === UO ISLAND (Left) === */}
+            {/* === UNIVERSITY ISLAND (Left) === */}
             <group ref={uoRef} position={[-3.5, -1, 0]}>
                 <mesh>
                     <planeGeometry args={[islandHeight * uoAspect, islandHeight]} />
@@ -928,7 +923,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                         side={THREE.DoubleSide}
                     />
                 </mesh>
-                {/* NAPIS NA WYSPIE (UO) - EDYTUJ TUTAJ */}
+                {/* NAPIS NA WYSPIE (UNIWERSYTET) - EDYTUJ TUTAJ */}
                 <Text
                     position={[0.1, -0.85, 0.1]} // POZYCJA (X, Y, Z)
                     fontSize={0.4}           // WIELKOŚĆ
@@ -937,11 +932,11 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
                 >
-                    2025-NOW
+                    2024-NOW
                 </Text>
             </group>
 
-            {/* === FREELANCE ISLAND (Right) === */}
+            {/* === NAMS STUDIO ISLAND (Right) === */}
             <group ref={freelanceRef} position={[3.5, -2, 0.5]}>
                 <mesh>
                     <planeGeometry args={[islandHeight * freelanceAspect, islandHeight]} />
@@ -951,7 +946,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                         side={THREE.DoubleSide}
                     />
                 </mesh>
-                {/* NAPIS NA WYSPIE (Freelance) - EDYTUJ TUTAJ */}
+                {/* NAPIS NA WYSPIE (NAMS STUDIO) - EDYTUJ TUTAJ */}
                 <Text
                     position={[0, -0.65, 0.1]} // POZYCJA (X, Y, Z)
                     fontSize={0.5}           // WIELKOŚĆ
@@ -973,23 +968,24 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
  */
 
 // Balloon configuration: size category, texture path, position offset
+// Balloon textures are the original hand-drawn assets; labels carry Muhammad Moaiz's real skills.
 // === EDYTUJ WYSOKOŚĆ TUTAJ (zmień wartość 'y' dla każdego balona) ===
 const BALLOON_CONFIG = [
     // Large balloons (main skills) - front and center
-    { texture: '/textures/about/reactduzybalon.webp', paintedTexture: '/textures/about/reactduzybalon_painted.webp', label: 'React', size: 'large', x: -2.5, y: 2, z: 0.3, phase: 0 },
-    { texture: '/textures/about/threejsduzybalon.webp', paintedTexture: '/textures/about/threejsduzybalon_painted.webp', label: 'Three.js', size: 'large', x: 2.5, y: 2.5, z: 0.2, phase: 1.5 },
-    { texture: '/textures/about/GSAPduzybalon.webp', paintedTexture: '/textures/about/GSAPduzybalon_painted.webp', label: 'GSAP', size: 'large', x: 0, y: 3, z: 0.5, phase: 3 },
+    { texture: '/textures/about/reactduzybalon.webp', paintedTexture: '/textures/about/reactduzybalon_painted.webp', label: 'React Native', size: 'large', x: -2.5, y: 2, z: 0.3, phase: 0 },
+    { texture: '/textures/about/threejsduzybalon.webp', paintedTexture: '/textures/about/threejsduzybalon_painted.webp', label: 'Next.js', size: 'large', x: 2.5, y: 2.5, z: 0.2, phase: 1.5 },
+    { texture: '/textures/about/GSAPduzybalon.webp', paintedTexture: '/textures/about/GSAPduzybalon_painted.webp', label: 'TypeScript', size: 'large', x: 0, y: 3, z: 0.5, phase: 3 },
 
     // Medium balloons - scattered around
     { texture: '/textures/about/JSSREDNIBALON.webp', paintedTexture: '/textures/about/JSSREDNIBALON_painted.webp', label: 'JavaScript', size: 'medium', x: -4, y: 1, z: -0.3, phase: 0.8 },
-    { texture: '/textures/about/csssrednibalon.webp', paintedTexture: '/textures/about/csssrednibalon_painted.webp', label: 'CSS', size: 'medium', x: 4, y: 1.5, z: -0.2, phase: 2.2 },
-    { texture: '/textures/about/nextjssrednibalon.webp', paintedTexture: '/textures/about/nextjssrednibalon_painted.webp', label: 'Next.js', size: 'medium', x: 0, y: 0.5, z: -0.4, phase: 4 },
+    { texture: '/textures/about/csssrednibalon.webp', paintedTexture: '/textures/about/csssrednibalon_painted.webp', label: 'Tailwind CSS', size: 'medium', x: 4, y: 1.5, z: -0.2, phase: 2.2 },
+    { texture: '/textures/about/nextjssrednibalon.webp', paintedTexture: '/textures/about/nextjssrednibalon_painted.webp', label: 'Node.js', size: 'medium', x: 0, y: 0.5, z: -0.4, phase: 4 },
 
     // Small balloons - background accents
-    { texture: '/textures/about/htmlmalybalon.webp', paintedTexture: '/textures/about/htmlmalybalon_painted.webp', label: 'HTML', size: 'small', x: -5.5, y: 2.5, z: -0.8, phase: 1.2 },
+    { texture: '/textures/about/htmlmalybalon.webp', paintedTexture: '/textures/about/htmlmalybalon_painted.webp', label: 'Firebase', size: 'small', x: -5.5, y: 2.5, z: -0.8, phase: 1.2 },
     { texture: '/textures/about/gitmalybalon.webp', paintedTexture: '/textures/about/gitmalybalon_painted.webp', label: 'Git', size: 'small', x: 5.5, y: 3, z: -0.7, phase: 2.8 },
-    { texture: '/textures/about/figmamalybalon.webp', paintedTexture: '/textures/about/figmamalybalon_painted.webp', label: 'Figma', size: 'small', x: -3, y: 4.5, z: -0.5, phase: 3.5 },
-    { texture: '/textures/about/firebasemalybalon.webp', paintedTexture: '/textures/about/firebasemalybalon_painted.webp', label: 'Firebase', size: 'small', x: 3.5, y: 4, z: -0.6, phase: 4.5 },
+    { texture: '/textures/about/figmamalybalon.webp', paintedTexture: '/textures/about/figmamalybalon_painted.webp', label: 'Supabase', size: 'small', x: -3, y: 4.5, z: -0.5, phase: 3.5 },
+    { texture: '/textures/about/firebasemalybalon.webp', paintedTexture: '/textures/about/firebasemalybalon_painted.webp', label: 'AI Tools', size: 'small', x: 3.5, y: 4, z: -0.6, phase: 4.5 },
 ];
 
 // Size multipliers for balloon categories

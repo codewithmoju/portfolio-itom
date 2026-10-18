@@ -33,47 +33,102 @@ export const GALLERY_INTERACTION_AUDIO_SETTINGS = {
     rolloff: 2        // How fast the sound fades away (exponential)
 };
 
-// Define the unique projects and their textures
+// Real project data for Muhammad Moaiz.
+// Card front images live in /public/textures/gallery and were copied from the
+// Myportfolio repo (see the data-replacement commit). Private-SaaS projects
+// intentionally declare no tech-stack logos because their stack is protected.
 const FALLBACK_PROJECTS = [
     {
-        id: 'monetune',
-        title: 'MONETUNE',
-        front: '/textures/gallery/monetuneprzod.webp',
-        painted: '/textures/gallery/monetuneprzod_painted.webp',
-        url: 'https://monetune.pl',
-        description: 'MoneTune is a step-by-step blueprint that teaches beginners how to generate passive income using AI-created music. Without any musical skills, you will learn how to easily produce professional tracks, publish them on platforms like Spotify, and monetize your digital assets.',
-        techStack: ['/textures/gallery/wordpresslogo.webp', '/textures/gallery/elementorlogo.webp', '/textures/gallery/phplogo.webp', '/textures/gallery/csslogo.webp']
+        id: 'routeradiant',
+        title: 'ROUTERADIANT',
+        front: '/textures/gallery/routeradiant.png',
+        url: 'https://codewithmoju.netlify.app/',
+        description: 'Private AI learning SaaS built around one clear mission: make structured, personalized education easier to access. Public-safe case study — learner value and outcome are shown, the internal system stays protected.',
+        techStack: []
     },
     {
-        id: 'timber',
-        title: 'TIMBERKITTY',
-        front: '/textures/gallery/timberkittyprzod.webp',
-        painted: '/textures/gallery/timberkittyprzod_painted.webp',
-        url: 'https://timberkitty.netlify.app',
-        description: 'TimberKitty is an addictive, free-to-play browser arcade game built in pure JavaScript. Players control a lumberjack cat to chop wood, save birds, complete daily missions, and compete on global leaderboards.',
-        techStack: ['/textures/gallery/jslogo.webp', '/textures/gallery/htmllogo.webp', '/textures/gallery/csslogo.webp', '/textures/gallery/firebaselogo.webp']
+        id: 'namsflow',
+        title: 'NAMS FLOW',
+        front: '/textures/gallery/namsflow.png',
+        url: 'https://codewithmoju.netlify.app/',
+        description: 'Private customer communication SaaS for organized multi-channel business workflows. The public story covers operator value and experience; integrations, billing and internal automation stay private.',
+        techStack: []
     },
     {
-        id: 'young',
-        title: 'YOUNG MULTI',
-        front: '/textures/gallery/youngmultiprzod.webp',
-        painted: '/textures/gallery/youngmultiprzod_painted.webp',
-        url: 'https://young-multi-strona.netlify.app',
-        description: 'A sleek, modern concept website dedicated to the Polish rapper and creator Young Multi. It serves as a promotional landing page designed to highlight his personal brand, music, and online presence.',
-        techStack: ['/textures/gallery/reactlogo.webp', '/textures/gallery/tailwindlogo.webp', '/textures/gallery/htmllogo.webp', '/textures/gallery/netlifylogo.webp']
+        id: 'kippo',
+        title: 'KIPPO',
+        front: '/textures/gallery/kippo.png',
+        url: 'https://codewithmoju.netlify.app/',
+        description: 'Private social media management SaaS for teams and agencies — content planning, scheduling, analytics and multi-account workflows in one calmer workspace.',
+        techStack: []
     },
     {
-        id: 'bio',
-        title: 'BIO',
-        front: '/textures/gallery/bioprzod.webp',
-        painted: '/textures/gallery/bioprzod_painted.webp',
-        url: 'https://tomkingbio.netlify.app',
-        description: 'A fast, modern personal bio page serving as a central hub for my digital footprint. It showcases my latest coding projects, web development services, YouTube videos, and recommended music artists.',
-        techStack: ['/textures/gallery/htmllogo.webp', '/textures/gallery/csslogo.webp', '/textures/gallery/jslogo.webp', '/textures/gallery/netlifylogo.webp']
+        id: 'stocksuite',
+        title: 'STOCKSUITE',
+        front: '/textures/gallery/stocksuite.png',
+        url: 'https://codewithmoju.netlify.app/',
+        description: 'Private retail POS SaaS for inventory, sales and store operations. Built for real retail counters where speed and clarity matter, with the internal system kept non-public.',
+        techStack: []
+    },
+    {
+        id: 'namsstudio',
+        title: 'NAMS STUDIO',
+        front: '/textures/gallery/namsstudio.png',
+        url: 'https://www.namsstudio.com',
+        description: 'Official NAMS Studio agency website — app development, web development, UI/UX and SEO services, presented with motion-driven brand storytelling and selected works.',
+        techStack: ['/textures/gallery/reactlogo.webp', '/textures/gallery/jslogo.webp', '/textures/gallery/tailwindlogo.webp', '/textures/gallery/csslogo.webp']
+    },
+    {
+        id: 'budgeto',
+        title: 'BUDGETO',
+        front: '/textures/gallery/budgeto.png',
+        url: 'https://github.com/codewithmoju/Finance-tracking-app',
+        description: 'Premium personal finance tracking app for expenses, income, categories, currencies and insights — a complete React Native fintech build with Firebase auth, storage and biometric quick login.',
+        techStack: ['/textures/gallery/reactlogo.webp', '/textures/gallery/firebaselogo.webp', '/textures/gallery/jslogo.webp']
+    },
+    {
+        id: 'spotspace',
+        title: 'SPOTSPACE',
+        front: '/textures/gallery/spotspace.png',
+        url: 'https://github.com/codewithmoju/SpotSpace',
+        description: 'Full-stack parking reservation and facility management app. Drivers discover facilities and book spots; admins configure sections, spot types, availability and pricing.',
+        techStack: ['/textures/gallery/reactlogo.webp', '/textures/gallery/firebaselogo.webp', '/textures/gallery/jslogo.webp']
+    },
+    {
+        id: 'skycast',
+        title: 'SKYCAST',
+        front: '/textures/gallery/skycast.jpeg',
+        url: 'https://github.com/codewithmoju/wheather-forcasting-app',
+        description: 'Weather forecasting app with real-time conditions and forecast views across Android, iOS and web. A clean, focused cross-platform utility build on live API data.',
+        techStack: ['/textures/gallery/reactlogo.webp', '/textures/gallery/tailwindlogo.webp', '/textures/gallery/jslogo.webp']
+    },
+    {
+        id: 'nemodelivers',
+        title: 'NEMODELIVERS',
+        front: '/textures/gallery/nemodelivers.jpg',
+        url: 'https://codewithmoju.netlify.app/',
+        description: 'Cross-platform food delivery experience — restaurant discovery, menu browsing, ordering and progress tracking, designed around speed, trust and clear decisions.',
+        techStack: ['/textures/gallery/reactlogo.webp', '/textures/gallery/firebaselogo.webp', '/textures/gallery/jslogo.webp']
+    },
+    {
+        id: 'velvox',
+        title: 'VELVOX',
+        front: '/textures/gallery/velvox.png',
+        url: 'https://codewithmoju.netlify.app/',
+        description: 'Premium men\'s fashion storefront with editorial e-commerce UX — collection browsing, product detail clarity, size selection and a cart-to-checkout-ready flow.',
+        techStack: ['/textures/gallery/reactlogo.webp', '/textures/gallery/jslogo.webp', '/textures/gallery/tailwindlogo.webp']
+    },
+    {
+        id: 'pakfiler',
+        title: 'PAKFILER',
+        front: '/textures/gallery/pakfiler.jpg',
+        url: 'https://codewithmoju.netlify.app/',
+        description: 'Protected Pakistani filing SaaS with guided user workflows. The public version explains only the product category and user-facing value; source, stack and business logic remain private.',
+        techStack: []
     },
 ];
 
-const PROJECT_COUNT = 10; // Keep the count for the infinite scroll feel
+const PROJECT_COUNT = 11; // One card per real project
 const GAP = 2.5;
 
 // Zmień te wartości aby dopasować proporcje ptaka (legacy ratio 1.41)

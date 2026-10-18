@@ -22,4 +22,4 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
-Sitemap: https://itomdev.com/sitemap.xml
+Sitemap: https://codewithmoju.netlify.app/sitemap.xml

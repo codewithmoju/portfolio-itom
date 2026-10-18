@@ -42,7 +42,6 @@ export const CORRIDOR_TEXTURES = [
     '/textures/corridor/texturadoprogow.webp',
     '/textures/corridor/texturadrewnadonozekbiurka.webp',
     '/textures/corridor/ceiling_texture.webp',
-    '/textures/corridor/avatar_sketch.webp',
     // Double doors (end of corridor)
     '/textures/corridor/doors/frame_sketch.webp',
     '/textures/corridor/doors/doorrleft.webp',
@@ -94,8 +93,6 @@ export const CORRIDOR_TEXTURES = [
 
 // Standard HTML Image assets (preloaded via new Image() in App.jsx)
 export const IMAGE_ASSETS = [
-    '/images/avatar-thinking.webp',
-    '/images/avatar-hero.webp',
     '/images/ink-splash.webp',
     '/images/map.webp',
     '/images/map_about_painted.webp',
@@ -135,12 +132,24 @@ export const GALLERY_TEXTURES_BASE = [
     '/textures/gallery/openliveproject.webp',
 ];
 
+// Real project card images (Muhammad Moaiz). These are the actual project
+// screenshots used as gallery card fronts. They have no hand-drawn "_painted"
+// variants, so the standard version is used on every device.
+export const GALLERY_PROJECT_IMAGES = [
+    '/textures/gallery/routeradiant.png',
+    '/textures/gallery/namsflow.png',
+    '/textures/gallery/kippo.png',
+    '/textures/gallery/stocksuite.png',
+    '/textures/gallery/velvox.png',
+    '/textures/gallery/namsstudio.png',
+    '/textures/gallery/pakfiler.jpg',
+    '/textures/gallery/nemodelivers.jpg',
+    '/textures/gallery/budgeto.png',
+    '/textures/gallery/skycast.jpeg',
+    '/textures/gallery/spotspace.png',
+];
+
 export const GALLERY_TEXTURES_VERSIONED = [
-    // Project cards
-    'monetuneprzod',
-    'timberkittyprzod',
-    'youngmultiprzod',
-    'bioprzod',
     // Card back
     'tylkartki',
     'przyciskdotylukartki',
@@ -159,6 +168,7 @@ export const GALLERY_TEXTURES_VERSIONED = [
 
 export const GALLERY_TEXTURES = [
     ...GALLERY_TEXTURES_BASE,
+    ...GALLERY_PROJECT_IMAGES,
     ...GALLERY_TEXTURES_VERSIONED.flatMap(name => [
         `/textures/gallery/${name}.webp`,
         name === 'csslogo' ? `/textures/gallery/css3logo_painted.webp` : `/textures/gallery/${name}_painted.webp`
@@ -190,11 +200,6 @@ export const ABOUT_TEXTURES = [
     '/textures/about/SOTM_painted.webp',
     '/textures/about/button.webp',
     '/textures/about/button_painted.webp',
-    // Award images (for overlay)
-    '/textures/about/SOTDAYYOUNGMULTICSSWINNER.webp',
-    '/textures/about/SOTDAYYOUNGMULTIGSAP.webp',
-    '/textures/about/SOTDAYYOUNGMULTIORPETRON.webp',
-    '/textures/about/SOTDAYYOUNGMULTIDESIGNNOMINESS.webp',
     // Journey islands
     '/textures/about/uowyspa.webp',
     '/textures/about/freelancewyspa.webp',
@@ -270,8 +275,6 @@ export const STUDIO_TEXTURES = [
     '/textures/studio/monitorfront_postnafbdoublewinner_painted.webp',
     '/textures/studio/phonefront_followmeontiktok.webp',
     '/textures/studio/phonefront_followmeontiktok_painted.webp',
-    '/textures/studio/tvfront_filmikedytowaniezdjec.webp',
-    '/textures/studio/tvfront_filmikedytowaniezdjec_painted.webp',
     '/textures/studio/tvfront_filmikprojektdlamultiego.webp',
     '/textures/studio/tvfront_filmikprojektdlamultiego_painted.webp',
 ];

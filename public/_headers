@@ -1,33 +1,33 @@
 https://portfolio-itom.pages.dev/*
   X-Robots-Tag: noindex
 
-https://itomdev.com/*
+https://codewithmoju.netlify.app/*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 
 # Cache static assets for 1 year (Performance & SEO Server Score)
-https://itomdev.com/*.js
+https://codewithmoju.netlify.app/*.js
   Cache-Control: public, max-age=31536000, immutable
 
-https://itomdev.com/*.css
+https://codewithmoju.netlify.app/*.css
   Cache-Control: public, max-age=31536000, immutable
 
-https://itomdev.com/*.webp
+https://codewithmoju.netlify.app/*.webp
   Cache-Control: public, max-age=31536000, immutable
 
-https://itomdev.com/*.png
+https://codewithmoju.netlify.app/*.png
   Cache-Control: public, max-age=31536000, immutable
 
-https://itomdev.com/*.ktx2
+https://codewithmoju.netlify.app/*.ktx2
   Cache-Control: public, max-age=31536000, immutable
 
-https://itomdev.com/*.glb
+https://codewithmoju.netlify.app/*.glb
   Cache-Control: public, max-age=31536000, immutable
 
-https://itomdev.com/*.mp3
+https://codewithmoju.netlify.app/*.mp3
   Cache-Control: public, max-age=31536000, immutable
 
-https://itomdev.com/fonts/*
+https://codewithmoju.netlify.app/fonts/*
   Cache-Control: public, max-age=31536000, immutable
